@@ -1,0 +1,13 @@
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_SAL_v1.0.exe.config
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_SAL_v1.0.exe
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_SAL_v1.0.pdb
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1._0.Ord_BanSal.resources
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1._0.Properties.Resources.resources
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1._0.sal4_Form.resources
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1._0.sal6_Form.resources
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1._0.sal8_Form.resources
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1._0.teamSelect.resources
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1.1.csproj.GenerateResource.Cache
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1.0.exe
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1.0.pdb
+C:\Users\LES\Desktop\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1._0.help.resources
