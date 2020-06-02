@@ -4,35 +4,57 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace ORD_SAL_v1._0
 {
+    //class로 바꿔야 할텐데...
     public struct characterDB
     {
         public int index;
         public string name;
         public Image img;
     }
+
+    public class Commonamount
+    {
+        [JsonProperty(PropertyName = "이름")]
+        public string characterName;
+        [JsonProperty(PropertyName = "계")]
+        public int TotalCommonamount;
+        [JsonProperty(PropertyName = "루피")]
+        public int Luppi;
+        [JsonProperty(PropertyName = "조로")]
+        public int Zoro;
+        [JsonProperty(PropertyName = "나미")]
+        public int Nami;
+        [JsonProperty(PropertyName = "우솝")]
+        public int Usopp;
+        [JsonProperty(PropertyName = "상디")]
+        public int Sanji;
+        [JsonProperty(PropertyName = "쵸파")]
+        public int Chopper;
+        [JsonProperty(PropertyName = "버기")]
+        public int Buggy;
+        [JsonProperty(PropertyName = "총병")]
+        public int musketeer;
+        [JsonProperty(PropertyName = "칼병")]
+        public int Swordsman;
+    }
     public class character_Info
     {
         public List<characterDB> chList = new List<characterDB>();
+        public List<Commonamount> CommonamountList = new List<Commonamount>();
 
-        private static character_Info instance;
+
+        #region 평천님이 짜준 싱글톤 모양 참고해서 다바꾸기
+        private static character_Info _instance;
         private character_Info() { InitList(); }
-        public static character_Info getInstance
-        {
-            get
-            {
-                if(instance == null)
-                {
-                    instance = new character_Info();
-                }
-                return instance;
-            }
-        }
-
+        public static character_Info Instance => _instance ?? (_instance = new character_Info());
+        #endregion
         public void InitList()
         {
+            #region characterDB Init
             characterDB temp = new characterDB();
             temp.index = 1;
             temp.name = "조로초월";
@@ -134,7 +156,10 @@ namespace ORD_SAL_v1._0
             temp.name = "미호크영원함";
             temp.img = Properties.Resources.미호크;
             chList.Add(temp);
+            #endregion
 
         }
+
+
     }
 }

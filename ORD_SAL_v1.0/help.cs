@@ -26,5 +26,10 @@ namespace ORD_SAL_v1._0
             parentf.Show();
             parentf = null;
         }
+
+        private void LegendCalBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

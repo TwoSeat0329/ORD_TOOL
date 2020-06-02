@@ -25,7 +25,7 @@ namespace ORD_SAL_v1._0
             this.MaximizeBox = false;
             this.Text = "4개 결과발표";
             parentf = mainf;
-            ch = character_Info.getInstance;
+            ch = character_Info.Instance;
             character_arr = arr;
             pbArr = new PictureBox[] { sal4_PB1, sal4_PB2, sal4_PB3, sal4_PB4};
             lbArr = new Label[] { label1, label2, label3, label4};
