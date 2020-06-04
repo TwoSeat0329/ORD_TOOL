@@ -20,7 +20,7 @@ namespace ORD_SAL_v1._0
         static IntPtr war3Handle = IntPtr.Zero;
         IntPtr GlobalOffset = IntPtr.Zero;
         byte[] ChracterGroupSearchPattern = new byte[] { 0xB2, 0x25, 0xBD, 0x25, 0xB2 };
-        byte[] ChracterCountSearchPattern = new byte[] { 0x03, 0xC9, 0xB8, 0x5F, 0x03 };
+        //byte[] ChracterCountSearchPattern = new byte[] { 0x03, 0xC9, 0xB8, 0x5F, 0x03 };
         byte[] MessageSearchPattern = new byte[] { 0x94, 0x28, 0x49, 0x65, 0x94 };
         byte[] ChannelListSearchPattern = new byte[] { 0x6E, 0xF6, 0x4C, 0x12, 0x6E };
  
@@ -143,11 +143,12 @@ namespace ORD_SAL_v1._0
         #endregion
 
 
-
+        
         public List<string> GetCharacters(int GroupCount)
         {
             string ret = null;
-            List<string> temp = null;
+            List<string> temp = new List<string>();
+            int count = 0;
             GlobalOffset = SearchAddress(war3Handle, ChracterGroupSearchPattern, 0x7FFFFFFF, 4);
             if (GlobalOffset != IntPtr.Zero)
             {
@@ -157,9 +158,9 @@ namespace ORD_SAL_v1._0
                 {
                     //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
                     byte[] buffer = new byte[0x80];
-                    for (int i = 0; i < GroupCount; i++)
+                    while (true)
                     {
-                        if (ReadProcessMemory(war3Handle, GlobalOffset + 0x258 + 0x6B0 * i, buffer, 0x80, out _))
+                        if (ReadProcessMemory(war3Handle, GlobalOffset + 0x258 + 0x6B0 * count, buffer, 0x80, out _))
                         {
                             using (ByteStream bs = new ByteStream())
                             {
@@ -169,41 +170,42 @@ namespace ORD_SAL_v1._0
                                     bs.WriteByte(item);
                                 }
                                 ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty);
-                                temp.Add(ret);
+                                if (count == GroupCount) break;
+                                else temp.Add(ret);
                             }
                         }
+                        count++;
                     }
+                    return temp;
                 }
             }
             GlobalOffset = IntPtr.Zero;
             CloseHandle(war3Handle);
+            temp.Clear();
             return temp;
         }
 
-        public int GetGroupCount()
-        {
-            GlobalOffset = SearchAddress(war3Handle, ChracterCountSearchPattern, 0x7FFFFFFF, 4);
-            if (GlobalOffset != IntPtr.Zero)
-            {
-                byte[] lpBuffer = new byte[5];
-                if (ReadProcessMemory(war3Handle, GlobalOffset, lpBuffer, 5, out _)
-                 && CompareArrays(ChracterCountSearchPattern, lpBuffer, 5))
-                {
-                    //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
-                    byte[] buffer = new byte[1];
-                    if (ReadProcessMemory(war3Handle, GlobalOffset + 0x94, buffer, 1, out _))
-                    {
-                        return buffer[0];
-                    }
-                }
-            }
-            GlobalOffset = IntPtr.Zero;
-            CloseHandle(war3Handle);
-            return 0;
-        }
+        //public int GetGroupCount()
+        //{
+        //    GlobalOffset = SearchAddress(war3Handle, ChracterCountSearchPattern, 0x7FFFFFFF, 4);
+        //    if (GlobalOffset != IntPtr.Zero)
+        //    {
+        //        byte[] lpBuffer = new byte[5];
+        //        if (ReadProcessMemory(war3Handle, GlobalOffset, lpBuffer, 5, out _)
+        //         && CompareArrays(ChracterCountSearchPattern, lpBuffer, 5))
+        //        {
+        //            //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
+        //            byte[] buffer = new byte[1];
+        //            if (ReadProcessMemory(war3Handle, GlobalOffset + 0x94, buffer, 1, out _))
+        //            {
+        //                return buffer[0];
+        //            }
+        //        }
+        //    }
+        //    GlobalOffset = IntPtr.Zero;
+        //    CloseHandle(war3Handle);
+        //    return 0;
+        //}      
     }
-
-
-
 }
 

@@ -17,12 +17,12 @@ namespace ORD_SAL_v1._0
         sendMsg s;
         string[] a;
         int[] arr;
-        struct dice
+        struct Dice
         {
             public string name;
             public int index;
         }
-        List<dice> data;
+        List<Dice> data;
         public teamSelect(Form mainf)
         {
             InitializeComponent();
@@ -34,12 +34,12 @@ namespace ORD_SAL_v1._0
 
         private void button1_Click(object sender, EventArgs e)
         {
-            data = new List<dice>();
+            data = new List<Dice>();
             a = textBox1.Text.Split(',');
             arr = rp.randomteam(a.Length);
             string smsg = null;
             //LstEventList = LstEventList.OrderBy(sel => sel.EventDate).ToList();
-            dice dicedata = new dice();
+            Dice dicedata = new Dice();
 
             for(int i =0; i< a.Length; i++)
             {

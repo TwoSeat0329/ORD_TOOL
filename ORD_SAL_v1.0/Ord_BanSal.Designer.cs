@@ -57,7 +57,7 @@
             this.helpBtn.Name = "helpBtn";
             this.helpBtn.Size = new System.Drawing.Size(75, 23);
             this.helpBtn.TabIndex = 1;
-            this.helpBtn.Text = "도움말";
+            this.helpBtn.Text = "전설계산기";
             this.helpBtn.UseVisualStyleBackColor = true;
             this.helpBtn.Click += new System.EventHandler(this.helpBtn_Click);
             // 

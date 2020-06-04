@@ -19,27 +19,27 @@ namespace ORD_SAL_v1._0
     public class Commonamount
     {
         [JsonProperty(PropertyName = "이름")]
-        public string characterName;
-        [JsonProperty(PropertyName = "계")]
-        public int TotalCommonamount;
+        public string characterName { get; set; }
         [JsonProperty(PropertyName = "루피")]
-        public int Luppi;
+        public int Luppi { get; set; }
         [JsonProperty(PropertyName = "조로")]
-        public int Zoro;
+        public int Zoro { get; set; }
         [JsonProperty(PropertyName = "나미")]
-        public int Nami;
+        public int Nami { get; set; }
         [JsonProperty(PropertyName = "우솝")]
-        public int Usopp;
+        public int Usopp { get; set; }
         [JsonProperty(PropertyName = "상디")]
-        public int Sanji;
+        public int Sanji { get; set; }
         [JsonProperty(PropertyName = "쵸파")]
-        public int Chopper;
+        public int Chopper { get; set; }
         [JsonProperty(PropertyName = "버기")]
-        public int Buggy;
+        public int Buggy { get; set; }
         [JsonProperty(PropertyName = "총병")]
-        public int musketeer;
+        public int musketeer { get; set; }
         [JsonProperty(PropertyName = "칼병")]
-        public int Swordsman;
+        public int Swordsman { get; set; }
+        [JsonProperty(PropertyName = "계")]
+        public int TotalCommonamount { get; set; }
     }
     public class character_Info
     {
