@@ -84,6 +84,10 @@ namespace ORD_SAL_v1._0
             } 
         }
 
+        private void teamSelect_Load(object sender, EventArgs e)
+        {
+            if (s == null) this.Close();
+        }
     }
 }
     

@@ -93,6 +93,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "팀 설정";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.teamSelect_FormClosing);
+            this.Load += new System.EventHandler(this.teamSelect_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

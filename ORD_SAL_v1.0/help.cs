@@ -46,8 +46,11 @@ namespace ORD_SAL_v1._0
                 int gc = int.Parse(countTB.Text);
                 if (gc > 12)
                 {
-                    MessageBox.Show("잘못된 값을 입력하셨습니다.");
-                    return;
+                    MessageBox.Show("잘못된 값을 입력하셨습니다."); return;
+                }
+                else if (gc == 1)
+                {
+                    MessageBox.Show("최소 한 개 이상만 검색이 가능합니다."); return;
                 }
                 charaterdata = s.GetCharacters(gc);
                 foreach (Commonamount amount in amountlist)
@@ -82,6 +85,11 @@ namespace ORD_SAL_v1._0
             {
                 MessageBox.Show("잘못된 숫자를 입력하셨습니다." + ex);
             }
+        }
+
+        private void help_Load(object sender, EventArgs e)
+        {
+            if (s == null) this.Close();
         }
     }
 }

@@ -37,15 +37,21 @@ namespace ORD_SAL_v1._0
             {
                 if(instance == null)
                 {
-                    instance = new sendMsg();
+                    
                     war3 = Process.GetProcessesByName("Warcraft III");
                     if (war3.Length == 0)
                     {
                         war3 = Process.GetProcessesByName("War3");
-                        //if (war3.Length == 0) 못찾을 경우 어떻게 할지 고민
-                            
+                        if (war3.Length == 0)
+                        {
+                            MessageBox.Show("워크래프트3를 먼저 실해주세요 "); return null;
+                        }
+                        else
+                        {
+                            war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+                        }                           
                     }
-                    war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+                    instance = new sendMsg();
                 }
                 return instance;
             }

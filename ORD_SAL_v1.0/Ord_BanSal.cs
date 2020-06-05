@@ -20,7 +20,7 @@ namespace ORD_SAL_v1._0
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.Text = "ORD_BENSAL v1.1";
+            this.Text = "ORD_BENSAL";
             textBox1.Text = "클리어 횟수 입력해주세요.";
             s = random_Pick.getInstance;
         }

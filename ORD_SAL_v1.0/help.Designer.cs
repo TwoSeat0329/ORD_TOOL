@@ -163,6 +163,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "제작자:Twoseat.aC 제작도움:평타천국(BlacklightsC)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.help_FormClosing);
+            this.Load += new System.EventHandler(this.help_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
