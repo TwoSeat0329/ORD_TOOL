@@ -7,8 +7,8 @@
     <ProjectGuid>{5A5015F3-9FCD-48DD-B6A0-CCD08CD6AC7F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ORD_SAL_v1._0</RootNamespace>
-    <AssemblyName>ORD_SAL_v1.0</AssemblyName>
+    <RootNamespace>ORD_SAL_v1</RootNamespace>
+    <AssemblyName>ORD_SAL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
