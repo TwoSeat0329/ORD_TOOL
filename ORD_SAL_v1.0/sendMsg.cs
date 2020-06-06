@@ -44,7 +44,7 @@ namespace ORD_SAL_v1._0
                         war3 = Process.GetProcessesByName("War3");
                         if (war3.Length == 0)
                         {
-                            MessageBox.Show("워크래프트3를 먼저 실해주세요 "); return null;
+                            MessageBox.Show("워크래프트3를 먼저 실행주세요 "); return null;
                         }
                         else
                         {
