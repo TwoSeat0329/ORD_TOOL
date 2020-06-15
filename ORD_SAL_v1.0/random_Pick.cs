@@ -37,19 +37,19 @@ namespace ORD_SAL_v1._0
 
             if (a < 5)  // 노 영원함
             {
-                return 22;
+                return 24;
             }
             else if (a >= 5 && a < 15)  // 에이스
             {
-                return 23;
+                return 25;
             }
             else if (a >= 15 && a < 35) // 헨콕
             {
-                return 24;
+                return 26;
             }
             else if (a >= 35) //미호크
             {
-                return 25;
+                return 27;
             }
             return 0;
         }
@@ -69,7 +69,7 @@ namespace ORD_SAL_v1._0
                 {
                     arr[i] = r.Next(0, a);
                     isSame = false;
-                    if (arr[i] == 0 || arr[i] == 15 || arr[i] == 16) isSame = true;
+                    if (arr[i] == 0 || arr[i] == 16) isSame = true;
                     for (int j = 0; j < i; ++j)
                     {
                         if (arr[i] == arr[j])

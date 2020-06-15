@@ -130,6 +130,16 @@ namespace ORD_SAL_v1.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        public static System.Drawing.Bitmap 도플라밍고 {
+            get {
+                object obj = ResourceManager.GetObject("도플라밍고", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         public static System.Drawing.Bitmap 드래곤 {
             get {
                 object obj = ResourceManager.GetObject("드래곤", resourceCulture);
@@ -160,6 +170,16 @@ namespace ORD_SAL_v1.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        public static System.Drawing.Bitmap 로빈 {
+            get {
+                object obj = ResourceManager.GetObject("로빈", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         public static System.Drawing.Bitmap 로우 {
             get {
                 object obj = ResourceManager.GetObject("로우", resourceCulture);
@@ -173,6 +193,16 @@ namespace ORD_SAL_v1.Properties {
         public static System.Drawing.Bitmap 루치 {
             get {
                 object obj = ResourceManager.GetObject("루치", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        public static System.Drawing.Bitmap 루피 {
+            get {
+                object obj = ResourceManager.GetObject("루피", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -240,6 +270,16 @@ namespace ORD_SAL_v1.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        public static System.Drawing.Bitmap 시노부 {
+            get {
+                object obj = ResourceManager.GetObject("시노부", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         public static System.Drawing.Bitmap 시라호시 {
             get {
                 object obj = ResourceManager.GetObject("시라호시", resourceCulture);
@@ -280,6 +320,16 @@ namespace ORD_SAL_v1.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        public static System.Drawing.Bitmap 에넬 {
+            get {
+                object obj = ResourceManager.GetObject("에넬", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         public static System.Drawing.Bitmap 에이스 {
             get {
                 object obj = ResourceManager.GetObject("에이스", resourceCulture);
@@ -303,6 +353,16 @@ namespace ORD_SAL_v1.Properties {
         public static System.Drawing.Bitmap 조로 {
             get {
                 object obj = ResourceManager.GetObject("조로", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        public static System.Drawing.Bitmap 카이도우 {
+            get {
+                object obj = ResourceManager.GetObject("카이도우", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,6 +403,16 @@ namespace ORD_SAL_v1.Properties {
         public static System.Drawing.Bitmap 핸콕 {
             get {
                 object obj = ResourceManager.GetObject("핸콕", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        public static System.Drawing.Bitmap 후지토라 {
+            get {
+                object obj = ResourceManager.GetObject("후지토라", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -153,6 +153,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ord_XG6_icon.ico" />
+    <None Include="Resources\후지토라.png" />
+    <None Include="Resources\에넬.jpg" />
+    <None Include="Resources\시노부.jpg" />
+    <None Include="Resources\루피.jpg" />
+    <None Include="Resources\로빈.jpg" />
+    <None Include="Resources\도플라밍고.png" />
+    <None Include="Resources\카이도우.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\commonList.json" />
