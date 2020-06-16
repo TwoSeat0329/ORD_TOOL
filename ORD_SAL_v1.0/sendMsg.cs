@@ -45,13 +45,14 @@ namespace ORD_SAL_v1._0
                         if (war3.Length == 0)
                         {
                             MessageBox.Show("워크래프트3를 먼저 실행주세요 "); return null;
-                        }
-                        else
-                        {
-                            war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
-                        }                           
+                        }                        
                     }
-                    instance = new sendMsg();
+                    else
+                    {
+                        war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+                        instance = new sendMsg();
+                    }
+                    
                 }
                 return instance;
             }
@@ -152,6 +153,7 @@ namespace ORD_SAL_v1._0
         
         public List<string> GetCharacters(int GroupCount)
         {
+
             string ret = null;
             List<string> temp = new List<string>();
             int count = 0;
