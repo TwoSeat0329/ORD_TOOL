@@ -15,12 +15,14 @@ namespace ORD_SAL_v1._0
     public partial class Ord_BanSal : Form
     {
         bool tb1 = false; // 텍스트박스 건드렸는지 안건드렸는지 확인
+        public bool timerPress = true; //알리미버튼 확인용
         random_Pick s;
+        Commands cmd = null;
         public Ord_BanSal()
         {
             InitializeComponent();
             this.MaximizeBox = false;
-            this.Text = "ORD_BENSAL";
+            this.Text = "ORD_TOOL";
             textBox1.Text = "클리어 횟수 입력해주세요.";
             s = random_Pick.getInstance;
         }
@@ -116,6 +118,26 @@ namespace ORD_SAL_v1._0
             new help(this).ShowDialog();
         }
 
+        private void TimerBtn_Click(object sender, EventArgs e)
+        {
+            if (timerPress)
+            {
+                cmd = new Commands();
+                TimerBtn.Text = "알리미 취소";
+                TimerBtn.BackColor = Color.Red;
+                timerPress = false;
+            }
+            else
+            {
+                cmd.state = false;
+                cmd = null;
+                TimerBtn.Text = "미션 알리미";
+                TimerBtn.BackColor = SystemColors.Control;
+                timerPress = true;
+            }
+            
 
+            
+        }
     }
 }

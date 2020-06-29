@@ -18,11 +18,13 @@ namespace ORD_SAL_v1._0
     {
         static Process[] war3 = null;
         static IntPtr war3Handle = IntPtr.Zero;
+        static IntPtr[] ArrOffset = null;
         IntPtr GlobalOffset = IntPtr.Zero;
         byte[] ChracterGroupSearchPattern = new byte[] { 0xB2, 0x25, 0xBD, 0x25, 0xB2 };
-        //byte[] ChracterCountSearchPattern = new byte[] { 0x03, 0xC9, 0xB8, 0x5F, 0x03 };
+        byte[] TimerSearchPattern = new byte[] { 0x58, 0xFB, 0xFF, 0x24, 0x58 };
         byte[] MessageSearchPattern = new byte[] { 0x94, 0x28, 0x49, 0x65, 0x94 };
         byte[] ChannelListSearchPattern = new byte[] { 0x6E, 0xF6, 0x4C, 0x12, 0x6E };
+        public IntPtr processcheck = IntPtr.Zero;
  
 
         Regex ColorCode = new Regex("\\|([cC][0-9a-fA-F]{8,8}|[rR])");
@@ -49,6 +51,7 @@ namespace ORD_SAL_v1._0
                         else
                         {
                             war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+                         
                             instance = new sendMsg();
                         }
                     }
@@ -131,6 +134,21 @@ namespace ORD_SAL_v1._0
             }
             return IntPtr.Zero;
         }
+
+        IntPtr[] SearchAllAddress(IntPtr hwnd, byte[] search, uint maxAdd, uint offset, uint startIndex = 0x10000, uint interval = 0x10000)
+        {
+            List<IntPtr> result = new List<IntPtr>();
+            byte[] lpBuffer = new byte[search.Length];
+            for (uint num = startIndex; num <= maxAdd; num += interval)
+            {
+                IntPtr lpBaseAddress = new IntPtr(num + offset);
+                if (ReadProcessMemory(hwnd, lpBaseAddress, lpBuffer, (uint)search.Length, out uint innerNum) && CompareArrays(search, lpBuffer, (int)innerNum))
+                    result.Add(lpBaseAddress);               
+            }
+            if (result.Count == 0)
+                return null;
+            return result.ToArray();
+        }
         [DllImport("kernel32", SetLastError = true)]
         internal static extern IntPtr OpenProcess
         (
@@ -198,27 +216,99 @@ namespace ORD_SAL_v1._0
             return temp;
         }
 
-        //public int GetGroupCount()
-        //{
-        //    GlobalOffset = SearchAddress(war3Handle, ChracterCountSearchPattern, 0x7FFFFFFF, 4);
-        //    if (GlobalOffset != IntPtr.Zero)
-        //    {
-        //        byte[] lpBuffer = new byte[5];
-        //        if (ReadProcessMemory(war3Handle, GlobalOffset, lpBuffer, 5, out _)
-        //         && CompareArrays(ChracterCountSearchPattern, lpBuffer, 5))
-        //        {
-        //            //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
-        //            byte[] buffer = new byte[1];
-        //            if (ReadProcessMemory(war3Handle, GlobalOffset + 0x94, buffer, 1, out _))
-        //            {
-        //                return buffer[0];
-        //            }
-        //        }
-        //    }
-        //    GlobalOffset = IntPtr.Zero;
-        //    CloseHandle(war3Handle);
-        //    return 0;
-        //}      
+        public List<string> GetMissonState(IntPtr Offset)
+        {
+            List<string> Listret = new List<string>();
+            string ret;
+
+            if (Offset != IntPtr.Zero)
+            {
+                byte[] lpBuffer = new byte[5];
+                if (ReadProcessMemory(war3Handle, Offset, lpBuffer, 5, out _)
+                 && CompareArrays(TimerSearchPattern, lpBuffer, 5))
+                {
+                    //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
+                    byte[] buffer = new byte[6];
+                    if (ReadProcessMemory(war3Handle, Offset + 0x1D2C, buffer, 6, out _))
+                    {
+                        using (ByteStream bs = new ByteStream())
+                        {
+                            foreach (var item in buffer)
+                            {
+                                if (item == 0) break;
+                                bs.WriteByte(item);
+                            }
+                            ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
+                            Listret.Add(ret);
+                        }
+                    }
+                    if (ReadProcessMemory(war3Handle, Offset + 0x322C, buffer, 6, out _))
+                    {
+                        using (ByteStream bs = new ByteStream())
+                        {
+                            foreach (var item in buffer)
+                            {
+                                if (item == 0) break;
+                                bs.WriteByte(item);
+                            }
+                            ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
+                            Listret.Add(ret);
+                        }
+                    }
+                    if (Listret.Count == 2) return Listret;
+                }
+            }
+            for (int i = 0; i < ArrOffset.Length; i++)
+            {
+                ArrOffset[i] = IntPtr.Zero;
+            }
+            Listret.Clear();
+            CloseHandle(war3Handle);
+            return null;
+        }
+
+        public IntPtr GetMissonOffset()
+        {
+            string ret;
+            ArrOffset = SearchAllAddress(war3Handle, TimerSearchPattern, 0x7FFFFFFF, 4);
+            Console.WriteLine(0);
+            if (ArrOffset.Length != 0)
+            {
+                for (int i = 0; i < ArrOffset.Length; i++)
+                {
+                    if (ArrOffset[i] != IntPtr.Zero)
+                    {
+                        byte[] lpBuffer = new byte[5];
+                        if (ReadProcessMemory(war3Handle, ArrOffset[i], lpBuffer, 5, out _)
+                         && CompareArrays(TimerSearchPattern, lpBuffer, 5))
+                        {
+                            //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
+                            byte[] buffer = new byte[6];
+                            if (ReadProcessMemory(war3Handle, ArrOffset[i] + 0x15DD, buffer, 6, out _))
+                            {
+                                using (ByteStream bs = new ByteStream())
+                                {
+                                    foreach (var item in buffer)
+                                    {
+                                        if (item == 0) break;
+                                        bs.WriteByte(item);
+                                    }
+                                    ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty);
+                                    if (ret == "거프")
+                                        return ArrOffset[i];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < ArrOffset.Length; i++)
+            {
+                ArrOffset[i] = IntPtr.Zero;
+            }
+            CloseHandle(war3Handle);
+            return IntPtr.Zero;
+        }
     }
 }
 

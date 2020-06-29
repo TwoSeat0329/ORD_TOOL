@@ -99,7 +99,8 @@ namespace ORD_SAL_v1.Properties {
         ///   &quot;버기&quot;: 3,
         ///   &quot;총병&quot;: 0,
         ///   &quot;칼병&quot;: 3,
-        ///   &quot;계&quot;: 13        ///[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///   &quot;계&quot;: 13
+        ///[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string commonList {
             get {

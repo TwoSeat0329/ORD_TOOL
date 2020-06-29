@@ -39,6 +39,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.setBtn = new System.Windows.Forms.Button();
             this.salCB3 = new System.Windows.Forms.CheckBox();
+            this.TimerBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startBtn
@@ -126,11 +127,22 @@
             this.salCB3.UseVisualStyleBackColor = true;
             this.salCB3.Click += new System.EventHandler(this.salCB3_Click);
             // 
+            // TimerBtn
+            // 
+            this.TimerBtn.Location = new System.Drawing.Point(13, 104);
+            this.TimerBtn.Name = "TimerBtn";
+            this.TimerBtn.Size = new System.Drawing.Size(253, 23);
+            this.TimerBtn.TabIndex = 9;
+            this.TimerBtn.Text = "미션 알리미";
+            this.TimerBtn.UseVisualStyleBackColor = true;
+            this.TimerBtn.Click += new System.EventHandler(this.TimerBtn_Click);
+            // 
             // Ord_BanSal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 107);
+            this.ClientSize = new System.Drawing.Size(273, 134);
+            this.Controls.Add(this.TimerBtn);
             this.Controls.Add(this.salCB3);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.saveLB);
@@ -159,6 +171,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button setBtn;
         private System.Windows.Forms.CheckBox salCB3;
+        private System.Windows.Forms.Button TimerBtn;
     }
 }
 

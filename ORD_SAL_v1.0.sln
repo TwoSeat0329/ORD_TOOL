@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORD_SAL_v1.1", "ORD_SAL_v1.0\ORD_SAL_v1.1.csproj", "{5A5015F3-9FCD-48DD-B6A0-CCD08CD6AC7F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORD_TOOL", "ORD_SAL_v1.0\ORD_TOOL.csproj", "{5A5015F3-9FCD-48DD-B6A0-CCD08CD6AC7F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirnoLib", "..\CirnoLib\CirnoLib\CirnoLib.csproj", "{EC749998-E306-4DB9-A6CB-9692DC918B6B}"
 EndProject
