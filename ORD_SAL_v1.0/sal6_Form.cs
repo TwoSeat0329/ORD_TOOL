@@ -42,11 +42,12 @@ namespace ORD_SAL_v1._0
 
         private void sal6_Form_Load(object sender, EventArgs e)
         {
-            for(int i = 0; i< character_arr.Length; i++)
+            sendtxt = "「ORD_TOOL」";
+            for (int i = 0; i< character_arr.Length; i++)
             {
                 pbArr[i].Image = ch.chList[character_arr[i]].img;
                 lbArr[i].Text = ch.chList[character_arr[i]].name;
-                sendtxt +="[" + ch.chList[character_arr[i]].name +"] " ; 
+                sendtxt += "[" + ch.chList[character_arr[i]].name +"] " ; 
             }
         }
 

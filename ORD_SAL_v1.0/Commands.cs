@@ -20,6 +20,7 @@ namespace ORD_SAL_v1
         bool missionBuild = true;
         System.Timers.Timer timer = new System.Timers.Timer();
         System.Timers.Timer timer1 = new System.Timers.Timer();
+        bool PiratesPress, SmokerPress = true;
 
         IntPtr off = IntPtr.Zero;
 
@@ -60,9 +61,10 @@ namespace ORD_SAL_v1
 
                     if (missonlist[0] == "매진")
                     {
-                        s.Send("「ORD_TOOL」[ 해적단 알리미 시작]");
                         timer.Start();
+                        s.Send("「ORD_TOOL」[해적단 알리미 시작]");
                         beforeround15 = false;
+                        PiratesPress = false;
                     }
                 }
                 else
@@ -70,12 +72,30 @@ namespace ORD_SAL_v1
 
                     if (missonlist[0] == "매진")
                     {
-                        timer.Start();
+                        if (PiratesPress)
+                        {
+                            s.Send("「ORD_TOOL」[해적단 알리미 시작]");
+                            timer.Start();
+                            PiratesPress = false;
+                        }
 
                     }
                     if (missonlist[1] == "매진")
                     {
-                        timer1.Start();
+                        if (SmokerPress)
+                        {
+                            s.Send("「ORD_TOOL」[스모커 알리미 시작]");
+                            timer1.Start();
+                            SmokerPress = false;
+                        }
+                    }
+                    if (missonlist[0] == "")
+                    {
+                        PiratesPress = true;
+                    }
+                    if (missonlist[1] == "")
+                    {
+                        SmokerPress = true;
                     }
                 }
             }
@@ -98,7 +118,7 @@ namespace ORD_SAL_v1
 
         private void timer_Pirates(Object source, ElapsedEventArgs e)
         {
-            s.Send("「ORD_TOOL」[ 해적단 쿨타임이 돌아왔습니다.]");
+            s.Send("「ORD_TOOL」[ 해적단 쿨타임이 돌아왔습니다.]");  
             timer.Stop();
         }
         private void timer_Smoker(Object source, ElapsedEventArgs e)

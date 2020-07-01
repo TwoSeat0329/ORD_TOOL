@@ -271,8 +271,7 @@ namespace ORD_SAL_v1._0
         {
             string ret;
             ArrOffset = SearchAllAddress(war3Handle, TimerSearchPattern, 0x7FFFFFFF, 4);
-            Console.WriteLine(0);
-            if (ArrOffset.Length != 0)
+            if (ArrOffset!= null)
             {
                 for (int i = 0; i < ArrOffset.Length; i++)
                 {

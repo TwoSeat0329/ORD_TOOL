@@ -57,7 +57,7 @@ namespace ORD_SAL_v1._0
                 if ((i+1) % 3 == 0)
                     smsg += " |  ";
             }
-            s.Send("========== 팀 랜덤 다이스 결과 ==========");
+            s.Send("「ORD_TOOL」팀 랜덤 다이스 결과");
             DelaySystem(1000);
             s.Send(smsg);
             a.Initialize();
