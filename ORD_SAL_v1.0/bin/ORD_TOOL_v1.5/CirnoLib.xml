@@ -1,0 +1,1274 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CirnoLib</name>
+    </assembly>
+    <members>
+        <member name="F:CirnoLib.SerialData.Index">
+            <summary>
+            해당 데이터를 읽는 우선 순위입니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.SerialData.LeadSpace">
+            <summary>
+            데이터를 읽기 전에 지나칠 선행 공백입니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.SerialData.TrailSpace">
+            <summary>
+            데이터를 읽은 후에 지나칠 후행 공백입니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.SerialData.Continuous">
+            <summary>
+            데이터가 배열과 같은 방식으로 인하여 연속되는지에 대해서 나타냅니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.SerialData.ContinueCountTarget">
+            <summary>
+            데이터가 연속될 경우 반복되는 횟수를 나타내는 변수의 이름입니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Compare(System.Byte[],System.Byte[])">
+            <summary>
+            바이트 배열을 비교하여, 값과 길이가 정확히 일치하는지 확인합니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Compare(System.Byte[],System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열을 0부터 지정된 길이까지 비교하여 값이 정확히 일치하는지 확인합니다.
+            </summary>
+            <param name="Length">값을 비교할 길이입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Compare(System.Byte[],System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            바이트 배열을 지정된 인덱스부터 지정된 길이까지 비교하여 값이 정확히 일치하는지 확인합니다.
+            </summary>
+            <param name="StartIndex">비교를 시작할 인덱스입니다.</param>
+            <param name="Length">값을 비교할 길이입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SubArray(System.Byte[],System.Int32)">
+            <summary>
+            지정된 바이트 배열을 지정된 인덱스부터 복사하여 반환합니다.
+            </summary>
+            <param name="array">데이터를 받아올 바이트 배열입니다.</param>
+            <param name="StartIndex">인덱스의 시작 위치입니다.</param>
+            <returns>바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SubArray(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            지정된 바이트 배열을 지정된 인덱스부터 지정된 길이만큼 복사하여 반환합니다.
+            </summary>
+            <param name="array">데이터를 받아올 바이트 배열입니다.</param>
+            <param name="StartIndex">인덱스의 시작 위치입니다.</param>
+            <param name="Length">복사할 배열의 길이입니다.</param>
+            <returns>바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SearchPattern(System.Byte[],System.Byte[])">
+            <summary>
+            바이트 배열에서 패턴과 정확히 일치하는 위치의 시작 인덱스들을 찾습니다.
+            </summary>
+            <param name="Array">검색할 바이트 배열입니다.</param>
+            <param name="Pattern">검색에 사용될 패턴입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SearchPattern(System.Byte[],System.String)">
+            <summary>
+            바이트 배열에서 문자열과 정확히 일치하는 위치의 시작 인덱스들을 찾습니다.
+            </summary>
+            <param name="Array">검색할 바이트 배열입니다.</param>
+            <param name="Text">검색에 사용될 문자열입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SearchPattern(System.Byte[],System.Boolean,System.Byte[])">
+            <summary>
+            바이트 배열에서 패턴과 정확히 일치하는 위치의 시작 인덱스를 찾습니다.
+            </summary>
+            <param name="Array">검색할 바이트 배열입니다.</param>
+            <param name="OrderType">True이면 오름차순, False이면 내림차순</param>
+            <param name="Pattern">검색에 사용될 패턴입니다.</param>
+            <returns>가장 처음 발견된 값의 시작 인덱스입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SearchPattern(System.Collections.Generic.List{System.Byte},System.Byte[])">
+            <summary>
+            바이트 배열에서 패턴과 정확히 일치하는 위치의 시작 인덱스들을 찾습니다.
+            </summary>
+            <param name="Array">검색할 바이트 배열입니다.</param>
+            <param name="Pattern">검색에 사용될 패턴입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SearchPattern(System.Collections.Generic.List{System.Byte},System.String)">
+            <summary>
+            바이트 배열에서 문자열과 정확히 일치하는 위치의 시작 인덱스들을 찾습니다.
+            </summary>
+            <param name="Array">검색할 바이트 배열입니다.</param>
+            <param name="Text">검색에 사용될 문자열입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.SearchPattern(System.Collections.Generic.List{System.Byte},System.Boolean,System.Byte[])">
+            <summary>
+            바이트 배열에서 패턴과 정확히 일치하는 위치의 시작 인덱스를 찾습니다.
+            </summary>
+            <param name="Array">검색할 바이트 배열입니다.</param>
+            <param name="OrderType">True이면 시작부터, False이면 끝부터</param>
+            <param name="Pattern">검색에 사용될 패턴입니다.</param>
+            <returns>가장 처음 발견된 값의 시작 인덱스입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Replace(System.Byte[],System.Byte[],System.Byte[])">
+            <summary>
+            현재 인스턴스의 지정된 바이트 배열이 지정된 다른 바이트 배열로 모두 바뀌는 새 바이트 배열을 반환합니다.
+            </summary>
+            <param name="Source">원본 인스턴스입니다.</param>
+            <param name="oldValue">바꿀 바이트 배열입니다.</param>
+            <param name="newValue">모든 oldValue를 바꿀 바이트 배열입니다.</param>
+            <returns>
+            oldValue의 모든 인스턴스를 newValue로 바꾼다는 점을 제외하고 현재 바이트 배열과 동일한 바이트 배열입니다. oldValue를 현재 인스턴스에서
+            찾을 수 없으면 메서드가 변경되지 않은 현재 인스턴스를 반환합니다.
+            </returns>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Replace(System.Collections.Generic.List{System.Byte},System.Byte[],System.Byte[])">
+            <summary>
+            현재 인스턴스의 지정된 바이트 배열을 지정된 다른 바이트 배열로 모두 바꿉니다.
+            </summary>
+            <param name="Source">원본 인스턴스입니다.</param>
+            <param name="oldValue">바꿀 바이트 배열입니다.</param>
+            <param name="newValue">모든 oldValue를 바꿀 바이트 배열입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Replace(System.Collections.Generic.List{System.Byte},System.Byte[],System.Collections.Generic.IEnumerable{System.Byte[]})">
+            <summary>
+            현재 인스턴스의 지정된 바이트 배열을 지정된 열거자에 포함된 바이트 배열로 모두 바꿉니다.
+            </summary>
+            <param name="Source">원본 인스턴스입니다.</param>
+            <param name="oldValue">바꿀 바이트 배열입니다.</param>
+            <param name="newValue">모든 oldValue를 바꿀 바이트 배열이 포함된 열거자입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Reverse(System.Byte[])">
+            <summary>
+            1차원 <see cref="T:System.Array"/> 전체에 있는 요소의 시퀀스를 역순으로 설정합니다.
+            </summary>
+            <param name="array">역순으로 바꿀 1차원 <see cref="T:System.Array"/>입니다.</param>
+        </member>
+        <member name="M:CirnoLib.ByteArrayExtension.Reverse(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            1차원 <see cref="T:System.Array"/>의 요소 범위에 있는 요소의 시퀀스를 역순으로 설정합니다.
+            </summary>
+            <param name="array">역순으로 바꿀 1차원 <see cref="T:System.Array"/>입니다.</param>
+            <param name="index">순서를 바꿀 섹션의 시작 인덱스입니다.</param>
+            <param name="length">순서를 바꿀 섹션에 있는 요소 수입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Cryptography.GenerateRSAKey(System.String@,System.String@)">
+            <summary>
+            무작위로 생성된 공개키와 그와 일치하는 개인키가 들어 있는 XML 문자열을 만들고 반환합니다.
+            </summary>
+            <param name="pubKey">공개키가 들어 있는 XML 문자열이 저장될 <see cref="T:System.String"/>입니다.</param>
+            <param name="priKey">개인키가 들어 있는 XML 문자열이 저장될 <see cref="T:System.String"/>입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Cryptography.RSAEncrypt(System.String,System.String,System.Boolean)">
+            <summary>
+            XML 문자열의 키 정보를 사용한 <see cref="T:System.Security.Cryptography.RSA"/> 개체의 알고리즘으로 데이터를 암호화합니다.
+            </summary>
+            <param name="input">암호화할 데이터입니다.</param>
+            <param name="key"><see cref="T:System.Security.Cryptography.RSA"/> 키 정보가 들어 있는 XML 문자열입니다.</param>
+            <param name="fOAEP">OAEP 안쪽 여백(Windows XP 이상을 실행하는 컴퓨터에서만 사용 가능)을 사용하여 직접 <see cref="T:System.Security.Cryptography.RSA"/> 암호화를 수행하려면 <see langword="true"/>이고, PKCS#1 v1.5 안쪽 여백을 사용하려면 <see langword="false"/>입니다.</param>
+            <returns>암호화된 데이터입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="key"/> 매개 변수가 <see langword="null"/>이거나 <paramref name="input"/>이 <see langword="null"/>입니다.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException"><paramref name="key"/> 매개 변수의 형식이 올바르지 않습니다.또는 <paramref name="input"/> 매개 변수의 길이가 최대 허용 길이보다 큽니다. 또는 <paramref name="fOAEP"/> 매개 변수가 true이고 OAEP가 지원되지 않습니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Cryptography.RSAEncrypt(System.Byte[],System.String,System.Boolean)">
+            <summary>
+            XML 문자열의 키 정보를 사용한 <see cref="T:System.Security.Cryptography.RSA"/> 개체의 알고리즘으로 데이터를 암호화합니다.
+            </summary>
+            <param name="input">암호화할 데이터입니다.</param>
+            <param name="key"><see cref="T:System.Security.Cryptography.RSA"/> 키 정보가 들어 있는 XML 문자열입니다.</param>
+            <param name="fOAEP">OAEP 안쪽 여백(Windows XP 이상을 실행하는 컴퓨터에서만 사용 가능)을 사용하여 직접 <see cref="T:System.Security.Cryptography.RSA"/> 암호화를 수행하려면 <see langword="true"/>이고, PKCS#1 v1.5 안쪽 여백을 사용하려면 <see langword="false"/>입니다.</param>
+            <returns>암호화된 데이터입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="key"/> 매개 변수가 <see langword="null"/>이거나 <paramref name="input"/>이 <see langword="null"/>입니다.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException"><paramref name="key"/> 매개 변수의 형식이 올바르지 않습니다.또는 <paramref name="input"/> 매개 변수의 길이가 최대 허용 길이보다 큽니다. 또는 <paramref name="fOAEP"/> 매개 변수가 true이고 OAEP가 지원되지 않습니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Cryptography.RSADecrypt(System.String,System.String,System.Boolean)">
+            <summary>
+            XML 문자열의 키 정보를 사용한 <see cref="T:System.Security.Cryptography.RSA"/> 개체의 알고리즘에 따라 데이터를 해독합니다.
+            </summary>
+            <param name="input">해독할 데이터입니다.</param>
+            <param name="priKey"><see cref="T:System.Security.Cryptography.RSA"/> 키 정보가 들어 있는 XML 문자열입니다.</param>
+            <param name="fOAEP">OAEP 안쪽 여백(Windows XP 이상을 실행하는 컴퓨터에서만 사용 가능)을 사용하여 직접 <see cref="T:System.Security.Cryptography.RSA"/> 암호화를 수행하려면 <see langword="true"/>이고, PKCS#1 v1.5 안쪽 여백을 사용하려면 <see langword="false"/>입니다.</param>
+            <returns>해독된 데이터로, 암호화하기 전의 원래 일반 텍스트입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="priKey"/> 매개 변수가 <see langword="null"/>이거나 <paramref name="input"/>이 <see langword="null"/>입니다.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException">
+            <paramref name="priKey"/> 매개 변수의 형식이 올바르지 않습니다.
+            또는 <paramref name="fOAEP"/> 매개 변수가 <see langword="true"/>이고 <paramref name="priKey"/> 매개 변수의 길이가 <see cref="P:System.Security.Cryptography.RSACryptoServiceProvider.KeySize"/>보다 큽니다.
+            또는 <paramref name="fOAEP"/> 매개 변수가 <see langword="true"/>이고 OAEP가 지원되지 않습니다.
+            또는 키가 암호화된 데이터와 일치하지 않습니다. 그러나 예외 표현이 정확하지 않을 수 있습니다.
+            예를 들어 Not enough storage is available to process this command로 나타날 수 있습니다.
+            </exception>
+        </member>
+        <member name="M:CirnoLib.Cryptography.RSADecrypt(System.Byte[],System.String,System.Boolean)">
+            <summary>
+            XML 문자열의 키 정보를 사용한 <see cref="T:System.Security.Cryptography.RSA"/> 개체의 알고리즘에 따라 데이터를 해독합니다.
+            </summary>
+            <param name="input">해독할 데이터입니다.</param>
+            <param name="priKey"><see cref="T:System.Security.Cryptography.RSA"/> 키 정보가 들어 있는 XML 문자열입니다.</param>
+            <param name="fOAEP">OAEP 안쪽 여백(Windows XP 이상을 실행하는 컴퓨터에서만 사용 가능)을 사용하여 직접 <see cref="T:System.Security.Cryptography.RSA"/> 암호화를 수행하려면 <see langword="true"/>이고, PKCS#1 v1.5 안쪽 여백을 사용하려면 <see langword="false"/>입니다.</param>
+            <returns>해독된 데이터로, 암호화하기 전의 원래 일반 텍스트입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="priKey"/> 매개 변수가 <see langword="null"/>이거나 <paramref name="input"/>이 <see langword="null"/>입니다.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException">
+            <paramref name="priKey"/> 매개 변수의 형식이 올바르지 않습니다.
+            또는 <paramref name="fOAEP"/> 매개 변수가 <see langword="true"/>이고 <paramref name="priKey"/> 매개 변수의 길이가 <see cref="P:System.Security.Cryptography.RSACryptoServiceProvider.KeySize"/>보다 큽니다.
+            또는 <paramref name="fOAEP"/> 매개 변수가 <see langword="true"/>이고 OAEP가 지원되지 않습니다.
+            또는 키가 암호화된 데이터와 일치하지 않습니다. 그러나 예외 표현이 정확하지 않을 수 있습니다.
+            예를 들어 Not enough storage is available to process this command로 나타날 수 있습니다.
+            </exception>
+        </member>
+        <member name="M:CirnoLib.Cryptography.RSASignData(System.String,System.String)">
+            <summary>
+            <see cref="T:System.Security.Cryptography.SHA512"/> 해시 알고리즘을 사용하여 지정된 바이트 배열의 해시 값을 계산하고 결과 해시 값을 서명합니다.
+            </summary>
+            <param name="input">해시를 계산하기 위한 입력 데이터입니다.</param>
+            <param name="priKey"><see cref="T:System.Security.Cryptography.RSA"/> 키 정보가 들어 있는 XML 문자열입니다.</param>
+            <returns>지정된 데이터의 <see cref="T:System.Security.Cryptography.RSA"/> 서명입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="priKey"/> 매개 변수가 <see langword="null"/>이거나 <paramref name="input"/>이 <see langword="null"/>입니다.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException"><paramref name="priKey"/> 매개 변수의 형식이 올바르지 않습니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Cryptography.RSASignData(System.Byte[],System.String)">
+            <summary>
+            <see cref="T:System.Security.Cryptography.SHA512"/> 해시 알고리즘을 사용하여 지정된 바이트 배열의 해시 값을 계산하고 결과 해시 값을 서명합니다.
+            </summary>
+            <param name="input">해시를 계산하기 위한 입력 데이터입니다.</param>
+            <param name="priKey"><see cref="T:System.Security.Cryptography.RSA"/> 키 정보가 들어 있는 XML 문자열입니다.</param>
+            <returns>지정된 데이터의 <see cref="T:System.Security.Cryptography.RSA"/> 서명입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="priKey"/> 매개 변수가 <see langword="null"/>이거나 <paramref name="input"/>이 <see langword="null"/>입니다.</exception>
+            <exception cref="T:System.Security.Cryptography.CryptographicException"><paramref name="priKey"/> 매개 변수의 형식이 올바르지 않습니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.GetRandom(System.Byte)">
+            <summary>
+            지정된 최대값보다 작은 음수가 아닌 임의의 정수를 반환합니다.
+            </summary>
+            <param name="maxValue">단독의 상한값 난수를 생성 합니다. maxValue보다 크거나 0 이어야 합니다.</param>
+        </member>
+        <member name="M:CirnoLib.Global.GetRandom(System.Byte,System.Byte)">
+            <summary>
+            지정된 범위 내의 임의의 정수를 반환합니다.
+            </summary>
+            <param name="minValue">임의의 수의 경계값 반환 됩니다.</param>
+            <param name="maxValue">반환 되는 임의의 수의 단독 상한입니다. maxValue보다 크거나 해야 minValue합니다.</param>
+        </member>
+        <member name="M:CirnoLib.Global.GetRandom(System.Int32)">
+            <summary>
+            지정된 최대값보다 작은 음수가 아닌 임의의 정수를 반환합니다.
+            </summary>
+            <param name="maxValue">단독의 상한값 난수를 생성 합니다. maxValue보다 크거나 0 이어야 합니다.</param>
+        </member>
+        <member name="M:CirnoLib.Global.GetRandom(System.Int32,System.Int32)">
+            <summary>
+            지정된 범위 내의 임의의 정수를 반환합니다.
+            </summary>
+            <param name="minValue">임의의 수의 경계값 반환 됩니다.</param>
+            <param name="maxValue">반환 되는 임의의 수의 단독 상한입니다. maxValue보다 크거나 해야 minValue합니다.</param>
+        </member>
+        <member name="M:CirnoLib.Global.GetRandom(System.Double)">
+            <summary>
+            0.0보다 크거나 같고 1.0보다 작은 부동 소수점 난수입니다.
+            </summary>
+            <returns>0.0보다 크거나 같고 1.0보다 작은 배정밀도 부동 소수점 숫자입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetRandom(System.Byte[])">
+            <summary>
+            바이트 배열의 요소를 난수로 채웁니다.
+            </summary>
+            <param name="buffer">임의의 숫자를 포함 하는 바이트의 배열입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Global.GetByteCount(System.String)">
+            <summary>
+            파생 클래스에서 재정의되면 지정된 문자열의 문자를 인코딩하여 생성되는 바이트 수를 계산합니다.
+            </summary>
+            <param name="text">인코딩할 문자 집합이 포함된 문자열입니다.</param>
+            <returns>지정한 문자를 인코딩할 경우 생성되는 바이트 수입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="text"/>가 null인 경우</exception>
+            <exception cref="T:System.Text.EncoderFallbackException">대체가 발생했습니다(전체 설명은 .NET Framework의 문자 인코딩 참조). 및 <see cref="T:System.Text.EncoderFallback"/>이 <see cref="T:System.Text.EncoderExceptionFallback"/>로 설정됩니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToBoolean(System.IO.Stream,System.Int32)">
+            <summary>
+            스트림의 지정된 된 위치에 바이트에서 변환 하는 부울 값을 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">내 바이트의 인덱스 <paramref name="value"/>"/>합니다.</param>
+            <returns>true 경우에 바이트 index 에서 value 0이 아니고, 그렇지 않으면 false합니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value"/>가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index 가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToChar(System.IO.Stream,System.Int32)">
+            <summary>
+            변환 된 스트림에 지정된 된 위치에 2 바이트에서 유니코드 문자를 반환 합니다.
+            </summary>
+            <param name="value">배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>2 바이트에서 시작 하 여 형성 된 문자 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 같으면 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToInt16(System.IO.Stream,System.Int32)">
+            <summary>
+            스트림에 지정된 된 위치에 2 바이트에서 변환 하는 16 비트 부호 있는 정수를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 2 바이트로 형성 된 16 비트 부호 있는 정수 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 같으면 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToInt32(System.IO.Stream,System.Int32)">
+            <summary>
+            스트림에 지정된 된 위치에서 4 바이트에서 변환 하는 32 비트 부호 있는 정수를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 4 바이트로 형성 된 32 비트 부호 있는 정수 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 보다 크거나 value 3,-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToInt64(System.IO.Stream,System.Int32)">
+            <summary>
+            스트림에 지정된 된 위치에 8 바이트에서 변환 하는 64 비트 부호 있는 정수를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 8 바이트도 64 비트 부호 있는 정수로 구성 된 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToUInt16(System.IO.Stream,System.Int32)">
+            <summary>
+            스트림에 지정된 된 위치에 2 바이트에서 변환 하는 16 비트 부호 없는 정수를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 2 바이트로 형성 된 16 비트 부호 없는 정수 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 같으면 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToUInt32(System.IO.Stream,System.Int32)">
+            <summary>
+            스트림에 지정된 된 위치에서 4 바이트에서 변환 하는 32 비트 부호 없는 정수를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 4 바이트로 형성 된 32 비트 부호 없는 정수 startIndex합니다.</returns>
+            <exception cref="T:System.ArgumentException">startIndex길이 보다 크거나 value 3,-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">startIndex가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToUInt64(System.IO.Stream,System.Int32)">
+            <summary>
+            스트림에 지정된 된 위치에 8 바이트에서 변환 하는 64 비트 부호 없는 정수를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 8 바이트도 64 비트 부호 없는 정수로 구성 된 startIndex합니다.</returns>
+            <exception cref="T:System.ArgumentException">startIndex길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">startIndex가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToSingle(System.IO.Stream,System.Int32)">
+            <summary>
+            4 바이트를 스트림의 지정된 된 위치에서 변환 된 단 정밀도 부동 소수점 숫자를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>단 정밀도 부동 소수점 숫자에서 시작 하는 4 바이트로 형성 된 startIndex합니다.</returns>
+            <exception cref="T:System.ArgumentException">startIndex길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">startIndex가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToDouble(System.IO.Stream,System.Int32)">
+            <summary>
+            변환 된 스트림에 지정된 된 위치에 8 바이트에서 2 배 정밀도 부동 소수점 숫자를 반환 합니다.
+            </summary>
+            <param name="stream">스트림입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>배정밀도 부동 소수점 숫자에서 시작 하는 8 바이트로 형성 된 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToBoolean(System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열의 지정된 된 위치에 바이트에서 변환 하는 부울 값을 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">내 바이트의 인덱스 <paramref name="value"/>"/>합니다.</param>
+            <returns>true 경우에 바이트 index 에서 value 0이 아니고, 그렇지 않으면 false합니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="value"/>가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index 가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToChar(System.Byte[],System.Int32)">
+            <summary>
+            변환 된 바이트 배열에 지정된 된 위치에 2 바이트에서 유니코드 문자를 반환 합니다.
+            </summary>
+            <param name="value">배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>2 바이트에서 시작 하 여 형성 된 문자 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 같으면 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToInt16(System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열에 지정된 된 위치에 2 바이트에서 변환 하는 16 비트 부호 있는 정수를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 2 바이트로 형성 된 16 비트 부호 있는 정수 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 같으면 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToInt32(System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열에 지정된 된 위치에서 4 바이트에서 변환 하는 32 비트 부호 있는 정수를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 4 바이트로 형성 된 32 비트 부호 있는 정수 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 보다 크거나 value 3,-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToInt64(System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열에 지정된 된 위치에 8 바이트에서 변환 하는 64 비트 부호 있는 정수를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 8 바이트도 64 비트 부호 있는 정수로 구성 된 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToUInt16(System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열에 지정된 된 위치에 2 바이트에서 변환 하는 16 비트 부호 없는 정수를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 2 바이트로 형성 된 16 비트 부호 없는 정수 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 같으면 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToUInt32(System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열에 지정된 된 위치에서 4 바이트에서 변환 하는 32 비트 부호 없는 정수를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 4 바이트로 형성 된 32 비트 부호 없는 정수 startIndex합니다.</returns>
+            <exception cref="T:System.ArgumentException">startIndex길이 보다 크거나 value 3,-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">startIndex가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToUInt64(System.Byte[],System.Int32)">
+            <summary>
+            바이트 배열에 지정된 된 위치에 8 바이트에서 변환 하는 64 비트 부호 없는 정수를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>시작 하는 8 바이트도 64 비트 부호 없는 정수로 구성 된 startIndex합니다.</returns>
+            <exception cref="T:System.ArgumentException">startIndex길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">startIndex가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToSingle(System.Byte[],System.Int32)">
+            <summary>
+            4 바이트를 바이트 배열의 지정된 된 위치에서 변환 된 단 정밀도 부동 소수점 숫자를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>단 정밀도 부동 소수점 숫자에서 시작 하는 4 바이트로 형성 된 startIndex합니다.</returns>
+            <exception cref="T:System.ArgumentException">startIndex길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">startIndex가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToDouble(System.Byte[],System.Int32)">
+            <summary>
+            변환 된 바이트 배열에 지정된 된 위치에 8 바이트에서 2 배 정밀도 부동 소수점 숫자를 반환 합니다.
+            </summary>
+            <param name="value">바이트 배열입니다.</param>
+            <param name="index">value 내의 시작 위치입니다.</param>
+            <returns>배정밀도 부동 소수점 숫자에서 시작 하는 8 바이트로 형성 된 index합니다.</returns>
+            <exception cref="T:System.ArgumentException">index길이 보다 크거나 value 7-가의 길이 보다 작거나 같음 및 value 1을 뺀 값입니다.</exception>
+            <exception cref="T:System.ArgumentNullException">value가 null인 경우</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">index가 0 보다 작거나의 길이 보다 큰 value 1을 뺀 값입니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.GetString(System.Byte[])">
+            <summary>
+            파생 클래스에서 재정의되면 지정한 바이트 배열의 모든 바이트를 문자열로 디코딩합니다.
+            </summary>
+            <param name="bytes">디코딩할 바이트 시퀀스를 포함하는 바이트 배열입니다.</param>
+            <returns>지정된 바이트 시퀀스에 대한 디코딩 결과가 포함된 문자열입니다.</returns>
+            <exception cref="T:System.ArgumentException">잘못 된 유니코드 코드 포인트를 포함 하는 바이트 배열.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bytes"/>가 null인 경우</exception>
+            <exception cref="T:System.Text.DecoderFallbackException">대체가 발생했습니다(전체 설명은 .NET Framework의 문자 인코딩 참조). 및 <see cref="T:System.Text.DecoderFallback"/>이 <see cref="T:System.Text.DecoderExceptionFallback"/>로 설정됩니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.GetString(System.Byte[],System.Text.Encoding)">
+            <summary>
+            파생 클래스에서 재정의되면 지정한 바이트 배열의 모든 바이트를 문자열로 디코딩합니다.
+            </summary>
+            <param name="bytes">디코딩할 바이트 시퀀스를 포함하는 바이트 배열입니다.</param>
+            <param name="encoding">디코딩에 사용될 문자 인코더입니다.</param>
+            <returns>지정된 바이트 시퀀스에 대한 디코딩 결과가 포함된 문자열입니다.</returns>
+            <exception cref="T:System.ArgumentException">잘못 된 유니코드 코드 포인트를 포함 하는 바이트 배열.</exception>
+            <exception cref="T:System.ArgumentNullException"><paramref name="bytes"/>가 null인 경우</exception>
+            <exception cref="T:System.Text.DecoderFallbackException">대체가 발생했습니다(전체 설명은 .NET Framework의 문자 인코딩 참조). 및 <see cref="T:System.Text.DecoderFallback"/>이 <see cref="T:System.Text.DecoderExceptionFallback"/>로 설정됩니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.Boolean)">
+            <summary>
+            바이트 배열로 지정된 된 부울 값을 반환합니다.
+            </summary>
+            <param name="value">부울 값입니다.</param>
+            <returns>길이가 1 바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.Char)">
+            <summary>
+            바이트의 배열로 지정된 된 유니코드 문자 값을 반환합니다.
+            </summary>
+            <param name="value">변환할 문자입니다.</param>
+            <returns>배열 길이 2 바이트입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.Int16)">
+            <summary>
+            지정 된 16 비트 부호 있는 정수 값으로 바이트 배열을 반환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>배열 길이 2 바이트입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.Int32)">
+            <summary>
+            바이트의 배열로 지정 된 32 비트 부호 있는 정수 값을 반환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>길이가 4 사용 하 여 바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.Int64)">
+            <summary>
+            지정된 64비트 부호 있는 정수 값을 바이트 배열로 반환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>길이가 8인 바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.UInt16)">
+            <summary>
+            지정된 된 16 비트 부호 없는 정수 값으로 바이트 배열을 반환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>배열 길이 2 바이트입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.UInt32)">
+            <summary>
+            지정된 된 32 비트 부호 없는 정수 값으로 바이트 배열을 반환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>길이가 4 사용 하 여 바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.UInt64)">
+            <summary>
+            지정된 된 64 비트 부호 없는 정수 값으로 바이트 배열을 반환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>길이가 8인 바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.Single)">
+            <summary>
+            지정된 된 단 정밀도 부동 소수점 값으로 바이트 배열을 반환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>길이가 4 사용 하 여 바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.Double)">
+            <summary>
+            지정된 된 64 비트 부호 있는 정수를 이중 정밀도 부동 소수점 숫자로 변환합니다.
+            </summary>
+            <param name="value">변환할 숫자입니다.</param>
+            <returns>값이에 해당 하는 두 자리 부동 소수점 숫자 value합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.String)">
+            <summary>
+            파생 클래스에서 재정의되면 지정한 문자열의 모든 문자를 바이트 시퀀스로 인코딩합니다.
+            </summary>
+            <param name="text">인코딩할 문자가 포함된 문자열입니다.</param>
+            <returns>지정한 문자 집합을 인코딩한 결과가 포함된 바이트 배열입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="text"/>가 null인 경우</exception>
+            <exception cref="T:System.Text.EncoderFallbackException">대체가 발생했습니다(전체 설명은 .NET Framework의 문자 인코딩 참조). 및 <see cref="T:System.Text.EncoderFallback"/>이 <see cref="T:System.Text.EncoderExceptionFallback"/>로 설정됩니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.GetBytes(System.String,System.Text.Encoding)">
+            <summary>
+            파생 클래스에서 재정의되면 지정한 문자열의 모든 문자를 바이트 시퀀스로 인코딩합니다.
+            </summary>
+            <param name="text">인코딩할 문자가 포함된 문자열입니다.</param>
+            <param name="encoding">인코딩에 사용될 문자 인코더입니다.</param>
+            <returns>지정한 문자 집합을 인코딩한 결과가 포함된 바이트 배열입니다.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="text"/>가 null인 경우</exception>
+            <exception cref="T:System.Text.EncoderFallbackException">대체가 발생했습니다(전체 설명은 .NET Framework의 문자 인코딩 참조). 및 <see cref="T:System.Text.EncoderFallback"/>이 <see cref="T:System.Text.EncoderExceptionFallback"/>로 설정됩니다.</exception>
+        </member>
+        <member name="M:CirnoLib.Global.ToArray(CirnoLib.IArrayable[])">
+            <summary>
+            해당 <see cref="T:CirnoLib.IArrayable"/> 배열을 바이트 배열로 반환합니다.
+            </summary>
+            <returns><see cref="T:CirnoLib.IArrayable"/> 배열의 바이트 배열입니다.</returns>
+        </member>
+        <member name="T:CirnoLib.IArrayable">
+            <summary>
+            해당 클래스가 바이트 배열의 형식으로 직렬화할 수 있음을 나타냅니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.IArrayable.ToArray">
+            <summary>
+            해당 <see cref="T:CirnoLib.IArrayable"/>을 바이트 배열로 반환합니다.
+            </summary>
+            <returns><see cref="T:CirnoLib.IArrayable"/>의 바이트 배열입니다.</returns>
+        </member>
+        <member name="T:CirnoLib.IStreamable">
+            <summary>
+            해당 클래스가 스트림의 형식으로 직렬화할 수 있음을 나타냅니다.
+            </summary>
+        </member>
+        <member name="T:CirnoLib.Settings.CryptoRegistryComponent">
+            <summary>
+            <see cref="T:Microsoft.Win32.Registry"/>를 좀 더 손쉽게 사용하기 위한 클래스입니다. <see cref="T:CirnoLib.Settings.RegistryComponent"/>에 암호화 및 난독화가 추가된 클래스입니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.Settings.CryptoRegistryComponent.RootKey">
+            <summary>
+            개체가 가르키는 키의 루트입니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.Settings.CryptoRegistryComponent.CryptoKey">
+            <summary>
+            개체를 암복호화하는데 사용될 암호키입니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.Settings.CryptoRegistryComponent.UseCache">
+            <summary>
+            개체에 쓰기 전에 캐시에 먼저 담아둘 지의 여부를 결정합니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.Settings.CryptoRegistryComponent.Cache">
+            <summary>
+            개체에 쓰기 전에 담아두는 캐시 입니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.#ctor(System.String,System.String,System.Boolean)">
+            <summary>
+            개체를 사용자가 제공하는 키를 루트로 초기화 합니다.
+            </summary>
+            <param name="RootPath">개체를 초기화할 루트 키 입니다.</param>
+            <param name="CryptoKey">개체를 암복호화할 암호키 입니다.</param>
+            <param name="UseCache">개체에 쓰기 전에 캐시에 먼저 담아둘 지의 여부를 결정합니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.Clear">
+            <summary>
+            <see cref="F:CirnoLib.Settings.CryptoRegistryComponent.RootKey"/>내에 존재하는 모든 키와 값을 재귀적으로 삭제합니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.DeleteValue(System.String,System.String)">
+            <summary>
+            지정된 값을 지정된 하위 키에서 삭제합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">삭제할 값의 이름입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.DeleteValue(System.String)">
+            <summary>
+            지정된 값을 이 키에서 삭제합니다.
+            </summary>
+            <param name="name">삭제할 값의 이름입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetBoolean(System.String,System.String,System.Boolean)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetBoolean(System.String,System.Boolean)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetByte(System.String,System.String,System.Byte)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetByte(System.String,System.Byte)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetBytes(System.String,System.String,System.Byte[])">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetBytes(System.String,System.Byte[])">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetChar(System.String,System.String,System.Char)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetChar(System.String,System.Char)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetInt16(System.String,System.String,System.Int16)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetInt16(System.String,System.Int16)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetInt32(System.String,System.String,System.Int32)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetInt32(System.String,System.Int32)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetInt64(System.String,System.String,System.Int64)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetInt64(System.String,System.Int64)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetUInt16(System.String,System.String,System.UInt16)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetUInt16(System.String,System.UInt16)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetUInt32(System.String,System.String,System.UInt32)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetUInt32(System.String,System.UInt32)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetUInt64(System.String,System.String,System.UInt64)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetUInt64(System.String,System.UInt64)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetSingle(System.String,System.String,System.Single)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetSingle(System.String,System.Single)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetDouble(System.String,System.String,System.Double)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetDouble(System.String,System.Double)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetString(System.String,System.String,System.String)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.GetString(System.String,System.String)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Boolean)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Boolean)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Byte)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Byte)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Byte[])">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Byte[])">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Char)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Char)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Int16)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Int16)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Int32)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Int32)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Int64)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Int64)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.UInt16)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.UInt16)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.UInt32)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.UInt32)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.UInt64)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.UInt64)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Single)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Single)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.Double)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.Double)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String,System.String)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.SetValue(System.String,System.String)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="T:CirnoLib.Settings.RegistryComponent">
+            <summary>
+            <see cref="T:Microsoft.Win32.Registry"/>를 좀 더 손쉽게 사용하기 위한 클래스입니다.
+            </summary>
+        </member>
+        <member name="F:CirnoLib.Settings.RegistryComponent.RootKey">
+            <summary>
+            개체가 가르키는 키의 루트입니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.#ctor(System.String)">
+            <summary>
+            개체를 사용자가 제공하는 키를 루트로 초기화 합니다.
+            </summary>
+            <param name="RootPath">개체를 초기화할 루트 키 입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.Clear">
+            <summary>
+            <see cref="F:CirnoLib.Settings.RegistryComponent.RootKey"/>내에 존재하는 모든 키와 값을 재귀적으로 삭제합니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.DeleteValue(System.String)">
+            <summary>
+            지정된 값을 이 키에서 삭제합니다.
+            </summary>
+            <param name="name">삭제할 값의 이름입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.DeleteValue(System.String,System.String)">
+            <summary>
+            지정된 값을 지정된 하위 키에서 삭제합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">삭제할 값의 이름입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.GetValue(System.String,System.Object)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다.
+            </summary>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.GetValue(System.String,System.String,System.Object)">
+            <summary>
+            지정된 이름 및 검색 옵션과 연결된 값을 검색합니다. 이름이 없으면 사용자가 제공하는 기본값을 반환합니다. 
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">검색할 값의 이름입니다. 이 문자열은 대/소문자를 구분하지 않습니다.</param>
+            <param name="defaultValue">Name 이 존재하지 않을 경우 반환하는 값 입니다.</param>
+            <returns><paramref name="name"/> 의 값을 반환합니다. 존재하지 않을 경우 <paramref name="defaultValue"/> 의 값을 반환합니다.</returns>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.SetValue(System.String,System.Object)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.SetValue(System.String,System.Boolean)">
+            <summary>
+            지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.SetValue(System.String,System.String,System.Object)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="M:CirnoLib.Settings.RegistryComponent.SetValue(System.String,System.String,System.Boolean)">
+            <summary>
+            지정된 키 내부의, 지정된 이름/값 쌍을 설정합니다.
+            </summary>
+            <param name="key">이름 또는 열려는 하위 키의 경로입니다.</param>
+            <param name="name">저장할 값의 이름입니다.</param>
+            <param name="value">저장할 값입니다.</param>
+        </member>
+        <member name="T:CirnoLib.Settings.RegistrySample">
+            <summary>
+            <see cref="T:CirnoLib.Settings.RegistryComponent"/>으로 구현한 설정 예시입니다.
+            Property를 사용하여 만드는 방식입니다.
+            </summary>
+        </member>
+        <member name="P:CirnoLib.Settings.RegistrySample.StringExample">
+            <summary>
+            <see cref="T:System.String"/> 값을 가져오거나 설정하는 예제입니다.
+            </summary>
+        </member>
+        <member name="P:CirnoLib.Settings.RegistrySample.IntExample">
+            <summary>
+            <see cref="T:System.Int32"/> 값을 가져오거나 설정하는 예제입니다.
+            </summary>
+        </member>
+        <member name="P:CirnoLib.Settings.RegistrySample.BoolExample">
+            <summary>
+            <see cref="T:System.Boolean"/> 값을 가져오거나 설정하는 예제입니다.
+            </summary>
+        </member>
+        <member name="P:CirnoLib.Settings.RegistrySample.FloatExample">
+            <summary>
+            <see cref="T:System.Single"/> 값을 가져오거나 설정하는 예제입니다.
+            다른 대부분의 값도 이러한 형태로 제작됩니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.SortedListDictionary`2.#ctor">
+            <summary>
+            비어 있고 키 형식에 대해 기본적으로 구현된 <see cref="T:CirnoLib.SortedListDictionary`2"/> 사용하는
+            빈 <see cref="T:System.Collections.Generic.IComparer`1"/> 클래스의 새 인스턴스를 초기화합니다.
+            </summary>
+        </member>
+        <member name="M:CirnoLib.SortedListDictionary`2.#ctor(System.Collections.Generic.IComparer{`0})">
+            <summary>
+            지정된 <see cref="T:CirnoLib.SortedListDictionary`2"/> 구현을 사용하여 키를 비교하는 빈 <see cref="T:System.Collections.Generic.IComparer`1"/>
+            클래스의 새 인스턴스를 초기화합니다.
+            </summary>
+            <param name="comparer">
+            키를 비교할 때 사용할 <see cref="T:System.Collections.Generic.IComparer`1"/> 구현을 지정하거나, 해당 키 형식에 기본 null을
+            사용하려면 <see cref="T:System.Collections.Generic.IComparer`1"/>을 지정합니다.
+            </param>
+        </member>
+        <member name="M:CirnoLib.SortedListDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1})">
+            <summary>
+            지정한 <see cref="T:CirnoLib.SortedListDictionary`2"/>에서 복사된 요소를 포함하고 키 형식에 대해 기본적으로
+            구현된 <see cref="T:System.Collections.Generic.IDictionary`2"/>을 사용하는 <see cref="T:System.Collections.Generic.IComparer`1"/>
+            클래스의 새 인스턴스를 초기화합니다.
+            </summary>
+            <param name="dictionary">요소가 새 <see cref="T:System.Collections.Generic.IDictionary`2"/>에 복사되는 <see cref="T:System.Collections.Generic.IDictionary`2"/>입니다.</param>
+            <exception cref="T:System.ArgumentNullException"> dictionary가 null인 경우</exception>
+            <exception cref="T:System.ArgumentException">dictionary 하나 이상의 중복 된 키를 포함합니다.</exception>
+        </member>
+        <member name="M:CirnoLib.SortedListDictionary`2.#ctor(System.Collections.Generic.IDictionary{`0,`1},System.Collections.Generic.IComparer{`0})">
+            <summary>
+            지정한 <see cref="T:CirnoLib.SortedListDictionary`2"/>에서 복사된 요소를 포함하고 지정한 <see cref="T:System.Collections.Generic.IDictionary`2"/>
+            구현을 사용하여 키를 비교하는 <see cref="T:System.Collections.Generic.IComparer`1"/> 클래스의 새 인스턴스를 초기화합니다.
+            </summary>
+            <param name="dictionary">요소가 새 <see cref="T:System.Collections.Generic.IDictionary`2"/>에 복사되는 <see cref="T:CirnoLib.SortedListDictionary`2"/>입니다.</param>
+            <param name="comparer">
+            키를 비교할 때 사용할 <see cref="T:System.Collections.Generic.IComparer`1"/> 구현을 지정하거나, 해당 키 형식에 기본 null을
+            사용하려면 <see cref="T:System.Collections.Generic.IComparer`1"/>을 지정합니다.
+            </param>
+            <exception cref="T:System.ArgumentNullException"> dictionary가 null인 경우</exception>
+            <exception cref="T:System.ArgumentException">dictionary 하나 이상의 중복 된 키를 포함합니다.</exception>
+        </member>
+        <member name="M:CirnoLib.SortedListDictionary`2.RemoveAt(System.Int32)">
+            <summary>
+            <see cref="T:CirnoLib.SortedListDictionary`2"/>의 지정한 인덱스에서 요소를 제거합니다.
+            </summary>
+            <param name="index">제거할 요소의 인덱스(0부터 시작)입니다.</param>
+            <exception cref="T:System.ArgumentOutOfRangeException"> index가 0보다 작은 경우 또는 index가 System.Collections.Generic.List`1.Count보다 크거나 같은 경우</exception>
+        </member>
+        <member name="M:CirnoLib.StreamExtension.SubArray(System.IO.Stream,System.Int32)">
+            <summary>
+            지정된 바이트 배열을 지정된 인덱스부터 복사하여 반환합니다.
+            </summary>
+            <param name="array">데이터를 받아올 바이트 배열입니다.</param>
+            <param name="StartIndex">인덱스의 시작 위치입니다.</param>
+            <returns>바이트 배열입니다.</returns>
+        </member>
+        <member name="M:CirnoLib.StreamExtension.SubArray(System.IO.Stream,System.Int32,System.Int32)">
+            <summary>
+            지정된 바이트 배열을 지정된 인덱스부터 지정된 길이만큼 복사하여 반환합니다.
+            </summary>
+            <param name="array">데이터를 받아올 바이트 배열입니다.</param>
+            <param name="StartIndex">인덱스의 시작 위치입니다.</param>
+            <param name="Length">복사할 배열의 길이입니다.</param>
+            <returns>바이트 배열입니다.</returns>
+        </member>
+    </members>
+</doc>

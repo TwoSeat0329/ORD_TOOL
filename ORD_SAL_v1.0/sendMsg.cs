@@ -231,6 +231,19 @@ namespace ORD_SAL_v1._0
                     byte[] buffer = new byte[6];
                     if(saveplay)
                     {
+                        if (ReadProcessMemory(war3Handle, Offset + 0x322C, buffer, 6, out _))
+                        {
+                            using (ByteStream bs = new ByteStream())
+                            {
+                                foreach (var item in buffer)
+                                {
+                                    if (item == 0) break;
+                                    bs.WriteByte(item);
+                                }
+                                ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
+                                Listret.Add(ret);
+                            }
+                        }
                         if (ReadProcessMemory(war3Handle, Offset + 0x242C, buffer, 6, out _))
                         {
                             using (ByteStream bs = new ByteStream())
@@ -260,20 +273,21 @@ namespace ORD_SAL_v1._0
                                 Listret.Add(ret);
                             }
                         }
-                    } 
-                    if (ReadProcessMemory(war3Handle, Offset + 0x322C, buffer, 6, out _))
-                    {
-                        using (ByteStream bs = new ByteStream())
+                        if (ReadProcessMemory(war3Handle, Offset + 0x322C, buffer, 6, out _))
                         {
-                            foreach (var item in buffer)
+                            using (ByteStream bs = new ByteStream())
                             {
-                                if (item == 0) break;
-                                bs.WriteByte(item);
+                                foreach (var item in buffer)
+                                {
+                                    if (item == 0) break;
+                                    bs.WriteByte(item);
+                                }
+                                ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
+                                Listret.Add(ret);
                             }
-                            ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
-                            Listret.Add(ret);
                         }
-                    }
+                    } 
+                    
                     if (Listret.Count == 2) return Listret;
                 }
             }
@@ -313,7 +327,10 @@ namespace ORD_SAL_v1._0
                                     }
                                     ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty);
                                     if (ret == "거프")
+                                    {
+                                        saveplay = false;
                                         return ArrOffset[i];
+                                    }
                                     if (ret == "바제")
                                     {
                                         saveplay = true;
