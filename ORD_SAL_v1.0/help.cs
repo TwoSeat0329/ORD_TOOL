@@ -17,14 +17,14 @@ namespace ORD_SAL_v1._0
     {
         Form parentf = null;
         sendMsg s;
-        character_Info ch;
+        
         public help(Form mainf)
         {
             InitializeComponent();
             this.MaximizeBox = false;
             parentf = mainf;
             s = sendMsg.getInstance;
-            ch = character_Info.Instance;
+            
         }
 
         private void help_FormClosing(object sender, FormClosingEventArgs e)
@@ -79,7 +79,7 @@ namespace ORD_SAL_v1._0
                     }
                 }              
                 Double result = Math.Round(totalcount / 39.7, 1);
-                s.Send(string.Format("조합 계산 결과 : 약 {0}전설", result));
+                s.Send(string.Format("「ORD_TOOL」조합 계산 결과 : 약 {0}전설", result));
             }
             catch(Exception ex)
             {

@@ -25,7 +25,7 @@ namespace ORD_SAL_v1._0
         byte[] MessageSearchPattern = new byte[] { 0x94, 0x28, 0x49, 0x65, 0x94 };
         byte[] ChannelListSearchPattern = new byte[] { 0x6E, 0xF6, 0x4C, 0x12, 0x6E };
         public IntPtr processcheck = IntPtr.Zero;
- 
+        bool saveplay = false;
 
         Regex ColorCode = new Regex("\\|([cC][0-9a-fA-F]{8,8}|[rR])");
        
@@ -211,7 +211,7 @@ namespace ORD_SAL_v1._0
                 }
             }
             GlobalOffset = IntPtr.Zero;
-            CloseHandle(war3Handle);
+            //CloseHandle(war3Handle);
             temp.Clear();
             return temp;
         }
@@ -229,19 +229,38 @@ namespace ORD_SAL_v1._0
                 {
                     //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
                     byte[] buffer = new byte[6];
-                    if (ReadProcessMemory(war3Handle, Offset + 0x1D2C, buffer, 6, out _))
+                    if(saveplay)
                     {
-                        using (ByteStream bs = new ByteStream())
+                        if (ReadProcessMemory(war3Handle, Offset + 0x242C, buffer, 6, out _))
                         {
-                            foreach (var item in buffer)
+                            using (ByteStream bs = new ByteStream())
                             {
-                                if (item == 0) break;
-                                bs.WriteByte(item);
+                                foreach (var item in buffer)
+                                {
+                                    if (item == 0) break;
+                                    bs.WriteByte(item);
+                                }
+                                ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
+                                Listret.Add(ret);
                             }
-                            ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
-                            Listret.Add(ret);
                         }
                     }
+                    else
+                    {
+                        if (ReadProcessMemory(war3Handle, Offset + 0x1D2C, buffer, 6, out _))
+                        {
+                            using (ByteStream bs = new ByteStream())
+                            {
+                                foreach (var item in buffer)
+                                {
+                                    if (item == 0) break;
+                                    bs.WriteByte(item);
+                                }
+                                ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty); ;
+                                Listret.Add(ret);
+                            }
+                        }
+                    } 
                     if (ReadProcessMemory(war3Handle, Offset + 0x322C, buffer, 6, out _))
                     {
                         using (ByteStream bs = new ByteStream())
@@ -263,7 +282,7 @@ namespace ORD_SAL_v1._0
                 ArrOffset[i] = IntPtr.Zero;
             }
             Listret.Clear();
-            CloseHandle(war3Handle);
+            //CloseHandle(war3Handle);
             return null;
         }
 
@@ -295,17 +314,32 @@ namespace ORD_SAL_v1._0
                                     ret = ColorCode.Replace(bs.ToArray().GetString(), string.Empty);
                                     if (ret == "거프")
                                         return ArrOffset[i];
+                                    if (ret == "바제")
+                                    {
+                                        saveplay = true;
+                                        return ArrOffset[i];
+                                    }
                                 }
                             }
                         }
                     }
                 }
             }
-            for (int i = 0; i < ArrOffset.Length; i++)
+            if (ArrOffset != null)
             {
-                ArrOffset[i] = IntPtr.Zero;
+                for (int i = 0; i < ArrOffset.Length; i++)
+                {
+                    ArrOffset[i] = IntPtr.Zero;
+                }
             }
-            CloseHandle(war3Handle);
+            try
+            {
+                //CloseHandle(war3Handle);
+            }
+            catch
+            {
+                
+            }
             return IntPtr.Zero;
         }
     }

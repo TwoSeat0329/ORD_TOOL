@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ORD_SAL_v1</RootNamespace>
-    <AssemblyName>ORD_SAL</AssemblyName>
+    <AssemblyName>ORD_TOOL</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -66,6 +66,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Actions.cs" />
@@ -88,6 +89,12 @@
     </Compile>
     <Compile Include="sal8_Form.Designer.cs">
       <DependentUpon>sal8_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="salSet_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salSet_Form.Designer.cs">
+      <DependentUpon>salSet_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="sendMsg.cs" />
     <Compile Include="sal4_Form.cs">
@@ -134,6 +141,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="sal8_Form.resx">
       <DependentUpon>sal8_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="salSet_Form.resx">
+      <DependentUpon>salSet_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="teamSelect.resx">
       <DependentUpon>teamSelect.cs</DependentUpon>

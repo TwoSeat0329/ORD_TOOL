@@ -7,6 +7,7 @@ using System.ComponentModel;
 using ORD_SAL_v1._0;
 using System.Threading;
 using System.Timers;
+using System.Windows.Forms;
 
 namespace ORD_SAL_v1
 {
@@ -21,6 +22,7 @@ namespace ORD_SAL_v1
         System.Timers.Timer timer = new System.Timers.Timer();
         System.Timers.Timer timer1 = new System.Timers.Timer();
         bool PiratesPress, SmokerPress = true;
+        
 
         IntPtr off = IntPtr.Zero;
 
@@ -33,10 +35,10 @@ namespace ORD_SAL_v1
             Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_RunWorkerCompleted);
             Worker.RunWorkerAsync();
 
-            timer.Interval = 1000 * 300;
+            timer.Interval = 1000 * 295;
             timer.Elapsed += new ElapsedEventHandler(timer_Pirates);
 
-            timer1.Interval = 1000 * 510;
+            timer1.Interval = 1000 * 505;
             timer1.Elapsed += new ElapsedEventHandler(timer_Smoker);
         }
 
@@ -52,10 +54,18 @@ namespace ORD_SAL_v1
                     missionBuild = false;
                     s.Send("「ORD_TOOL」[미션 건물 설정완료]");
                 }
+                else
+                {               
+                    return; 
+                }
             }
             else
             {
                 missonlist = s.GetMissonState(off);
+                if (missonlist == null)
+                {
+                    return;
+                }
                 if (beforeround15)
                 {
 
@@ -69,7 +79,14 @@ namespace ORD_SAL_v1
                 }
                 else
                 {
-
+                    if (missonlist[0] == "")
+                    {
+                        PiratesPress = true;
+                    }
+                    if (missonlist[1] == "")
+                    {
+                        SmokerPress = true;
+                    }
                     if (missonlist[0] == "매진")
                     {
                         if (PiratesPress)
@@ -88,15 +105,7 @@ namespace ORD_SAL_v1
                             timer1.Start();
                             SmokerPress = false;
                         }
-                    }
-                    if (missonlist[0] == "")
-                    {
-                        PiratesPress = true;
-                    }
-                    if (missonlist[1] == "")
-                    {
-                        SmokerPress = true;
-                    }
+                    }                 
                 }
             }
 
@@ -118,12 +127,12 @@ namespace ORD_SAL_v1
 
         private void timer_Pirates(Object source, ElapsedEventArgs e)
         {
-            s.Send("「ORD_TOOL」[ 해적단 쿨타임이 돌아왔습니다.]");  
+            s.Send("「ORD_TOOL」[ 해적단 쿨타임이 5초 남았습니다.]");  
             timer.Stop();
         }
         private void timer_Smoker(Object source, ElapsedEventArgs e)
         {
-            s.Send("「ORD_TOOL」[ 스모커 쿨타임이 돌아왔습니다.]");
+            s.Send("「ORD_TOOL」[ 스모커 쿨타임이 5초 남았습니다.]");
             timer1.Stop();
         }
     }

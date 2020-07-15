@@ -12,23 +12,25 @@ using System.Windows.Forms;
 
 namespace ORD_SAL_v1._0
 {
+
     public partial class Ord_BanSal : Form
     {
         bool tb1 = false; // 텍스트박스 건드렸는지 안건드렸는지 확인
         public bool timerPress = true; //알리미버튼 확인용
         random_Pick s;
-        Commands cmd = null;
+        public Commands cmd = null;
         public Ord_BanSal()
         {
             InitializeComponent();
             this.MaximizeBox = false;
             this.Text = "ORD_TOOL";
-            textBox1.Text = "클리어 횟수 입력해주세요.";
+            textBox1.Text = "입력하세요.";
             s = random_Pick.getInstance;
+            
         }
 
+        
 
-      
 
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -134,10 +136,13 @@ namespace ORD_SAL_v1._0
                 TimerBtn.Text = "미션 알리미";
                 TimerBtn.BackColor = SystemColors.Control;
                 timerPress = true;
-            }
-            
+            }      
+        }
 
-            
+        private void SalSetBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            new salSet_Form(this).ShowDialog();
         }
     }
 }

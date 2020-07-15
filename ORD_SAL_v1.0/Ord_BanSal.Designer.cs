@@ -40,6 +40,7 @@
             this.setBtn = new System.Windows.Forms.Button();
             this.salCB3 = new System.Windows.Forms.CheckBox();
             this.TimerBtn = new System.Windows.Forms.Button();
+            this.SalSetBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // startBtn
@@ -100,9 +101,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 43);
+            this.textBox1.Location = new System.Drawing.Point(104, 43);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 21);
+            this.textBox1.Size = new System.Drawing.Size(75, 21);
             this.textBox1.TabIndex = 7;
             this.textBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.textBox1_MouseClick);
             // 
@@ -137,11 +138,22 @@
             this.TimerBtn.UseVisualStyleBackColor = true;
             this.TimerBtn.Click += new System.EventHandler(this.TimerBtn_Click);
             // 
+            // SalSetBtn
+            // 
+            this.SalSetBtn.Location = new System.Drawing.Point(191, 43);
+            this.SalSetBtn.Name = "SalSetBtn";
+            this.SalSetBtn.Size = new System.Drawing.Size(75, 23);
+            this.SalSetBtn.TabIndex = 10;
+            this.SalSetBtn.Text = "유닛 목록";
+            this.SalSetBtn.UseVisualStyleBackColor = true;
+            this.SalSetBtn.Click += new System.EventHandler(this.SalSetBtn_Click);
+            // 
             // Ord_BanSal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(273, 134);
+            this.Controls.Add(this.SalSetBtn);
             this.Controls.Add(this.TimerBtn);
             this.Controls.Add(this.salCB3);
             this.Controls.Add(this.textBox1);
@@ -172,6 +184,7 @@
         private System.Windows.Forms.Button setBtn;
         private System.Windows.Forms.CheckBox salCB3;
         private System.Windows.Forms.Button TimerBtn;
+        private System.Windows.Forms.Button SalSetBtn;
     }
 }
 

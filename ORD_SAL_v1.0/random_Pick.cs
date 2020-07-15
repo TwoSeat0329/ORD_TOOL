@@ -8,6 +8,10 @@ namespace ORD_SAL_v1._0
 {
     public class random_Pick
     {
+        public bool overlap = true;
+        int[] overlaplist4 = new int[4];
+        int[] overlaplist6 = new int[6];
+        int[] overlaplist8 = new int[8];
         private static random_Pick instance;
         private random_Pick() { }
         public static random_Pick getInstance
@@ -23,12 +27,30 @@ namespace ORD_SAL_v1._0
         }
         public int[] start_Set(int savecount,int unitcount)
         {
-
+            List<int> falsechecklist = new List<int>();
+            foreach(var a in character_Info.Instance.chList)
+            {
+                if (!a.sel)
+                    falsechecklist.Add(a.index);
+            }
 
             int count = saveroll(savecount);
-
-            int[] randomcount = random(count, unitcount);
-
+            int[] randomcount = null;
+            if (unitcount == 4)
+            {
+                randomcount = random(count, unitcount, overlaplist4, overlap, falsechecklist);
+                overlaplist4 = randomcount;
+            }
+            else if (unitcount == 6)
+            {
+                randomcount = random(count, unitcount, overlaplist6, overlap, falsechecklist);
+                overlaplist6 = randomcount;
+            }
+            else if (unitcount == 8)
+            {
+                randomcount = random(count, unitcount, overlaplist8, overlap, falsechecklist);
+                overlaplist8 = randomcount;
+            }
             return randomcount;
         }
 
@@ -56,7 +78,7 @@ namespace ORD_SAL_v1._0
 
 
         // 랜덤 숫자 뽑아주는 함수
-        static int[] random(int a, int b)
+        static int[] random(int a, int b,int[] overlaplist, bool overlap, List<int> falsecheck)
         {
             int[] arr = new int[b];
             bool isSame;
@@ -68,8 +90,23 @@ namespace ORD_SAL_v1._0
                 while (true)
                 {
                     arr[i] = r.Next(0, a);
+
                     isSame = false;
-                    if (arr[i] == 0 || arr[i] == 16) isSame = true;
+                    if (overlap)
+                    {
+                        foreach (int over in overlaplist)
+                        {
+                            if (arr[i] == over)
+                                isSame = true;
+                        }
+                    }
+
+                    foreach(int index in falsecheck)
+                    {
+                        if (arr[i] == index - 1)
+                            isSame = true;
+                    }
+                    
                     for (int j = 0; j < i; ++j)
                     {
                         if (arr[i] == arr[j])
@@ -77,8 +114,6 @@ namespace ORD_SAL_v1._0
                             isSame = true;
                             break;
                         }
-
-
                     }
                     if (!isSame) break;
                 }
@@ -105,8 +140,6 @@ namespace ORD_SAL_v1._0
                             isSame = true;
                             break;
                         }
-
-
                     }
                     if (!isSame) break;
                 }

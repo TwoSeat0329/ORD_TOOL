@@ -1,6 +1,3 @@
-C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_SAL.exe.config
-C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_SAL.exe
-C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_SAL.pdb
 C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\CirnoLib.dll
 C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\Newtonsoft.Json.dll
 C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\CirnoLib.pdb
@@ -17,5 +14,9 @@ C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1.
 C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_TOOL.csproj.GenerateResource.cache
 C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_TOOL.csproj.CoreCompileInputs.cache
 C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_TOOL.csproj.CopyComplete
-C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL.exe
-C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL.pdb
+C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_TOOL.exe.config
+C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_TOOL.exe
+C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\bin\Debug\ORD_TOOL.pdb
+C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_TOOL.exe
+C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_TOOL.pdb
+C:\Users\LES\Source\Repos\ORD_SAL_v1.1-master\ORD_SAL_v1.0\obj\Debug\ORD_SAL_v1.salSet_Form.resources

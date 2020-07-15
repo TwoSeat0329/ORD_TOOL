@@ -14,6 +14,7 @@ namespace ORD_SAL_v1._0
         public int index;
         public string name;
         public Image img;
+        public bool sel;
     }
 
     public class Commonamount
@@ -59,115 +60,147 @@ namespace ORD_SAL_v1._0
             temp.index = 1;
             temp.name = "조로초월";
             temp.img = Properties.Resources.조로;
+            temp.sel = false;
             chList.Add(temp);
             temp.index = 2;
             temp.name = "나미초월";
             temp.img = Properties.Resources.나미;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 3;
             temp.name = "상디초월";
             temp.img = Properties.Resources.상디;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 4;
             temp.name = "프랑키초월";
             temp.img = Properties.Resources.프랑키;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 5;
             temp.name = "브룩초월";
             temp.img = Properties.Resources.브룩;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 6;
             temp.name = "샹크스초월";
             temp.img = Properties.Resources.샹크스;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 7;
             temp.name = "검은수염초월";
             temp.img = Properties.Resources.검은수염;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 8;
             temp.name = "시라호시초월";
             temp.img = Properties.Resources.시라호시;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 9;
             temp.name = "아오키지초월";
             temp.img = Properties.Resources.아오키지;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 10;
             temp.name = "아카이누초월";
             temp.img = Properties.Resources.아카이누;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 11;
             temp.name = "키자루초월";
             temp.img = Properties.Resources.키자루;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 12;
             temp.name = "로우초월";
             temp.img = Properties.Resources.로우;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 13;
             temp.name = "타시기초월";
             temp.img = Properties.Resources.타시기;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 14;
             temp.name = "빅맘초월";
             temp.img = Properties.Resources.빅맘;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 15;
             temp.name = "루치초월";
             temp.img = Properties.Resources.루치;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 16;
             temp.name = "레일리불멸";//하이브리드
             temp.img = Properties.Resources.레일리;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 17;
             temp.name = "흰수염불멸";//하이브리드
             temp.img = Properties.Resources.흰수염;
+            temp.sel = false;
             chList.Add(temp);
             temp.index = 18;
             temp.name = "센고쿠불멸";
             temp.img = Properties.Resources.센고쿠;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 19;
             temp.name = "시키불멸";
             temp.img = Properties.Resources.시키;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 20;
             temp.name = "드래곤불멸";
             temp.img = Properties.Resources.드래곤;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 21;
             temp.name = "제트불멸";
             temp.img = Properties.Resources.제파;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 22;
             temp.name = "시노부제한됨";
             temp.img = Properties.Resources.시노부;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 23;
             temp.name = "에넬제한됨";
             temp.img = Properties.Resources.에넬;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 24;
             temp.name = "레드필드제한됨";
             temp.img = Properties.Resources.레드필드;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 25;
             temp.name = "에이스영원함"; 
             temp.img = Properties.Resources.에이스;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 26;
             temp.name = "핸콕영원함";
             temp.img = Properties.Resources.핸콕;
+            temp.sel = true;
             chList.Add(temp);
             temp.index = 27;
             temp.name = "미호크영원함";
             temp.img = Properties.Resources.미호크;
+            temp.sel = true;
             chList.Add(temp);
             #endregion
 
         }
 
-
+        public void ListCheckChange(int index, bool ch)
+        {
+            characterDB temp = chList[index];
+            temp.sel = ch;
+            chList[index] = temp;
+        }
     }
 }
