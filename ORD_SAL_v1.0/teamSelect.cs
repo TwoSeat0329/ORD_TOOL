@@ -54,21 +54,24 @@ namespace ORD_SAL_v1._0
             for (int i = 0; i < a.Length; i++)
             {
                 if(i == 0)
-                    smsg += "1팀- ";
+                    smsg += "1팀 - ";
                 if(i == 3)
-                    smsg += "2팀- ";
+                    smsg += "2팀 - ";
                 if(i == 6)
-                    smsg += "3팀- ";
+                    smsg += "3팀 - ";
                 if(i == 9)
-                    smsg += "4팀- ";
+                    smsg += "4팀 - ";
                 if (i == 12)
-                    smsg += "5팀- ";
+                    smsg += "5팀 - ";
 
                 smsg += data[i].name + ":" + data[i].index+" ";
-                if ((i+1) % 3 == 0)
-                    smsg += "|n";
+                if ((i + 1) % 3 == 0)
+                {
+                    if(i != a.Length)
+                        smsg += "|n";
+                }
             }
-            s.Send("「ORD_TOOL」팀 랜덤 다이스 결과|n" + smsg);
+            s.Send($"\x1「ORD_TOOL」팀 랜덤 다이스 결과|n" + smsg);
             a.Initialize();
             arr.Initialize();
             data.Clear();

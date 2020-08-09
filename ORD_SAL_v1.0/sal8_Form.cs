@@ -17,7 +17,7 @@ namespace ORD_SAL_v1._0
         int[] character_arr;
         PictureBox[] pbArr;
         Label[] lbArr;
-        string sendtxt;
+        string sendtxt, sendtxt1;
         sendMsg s;
         public sal8_Form(Form mainf, int[] arr)
         {
@@ -40,18 +40,25 @@ namespace ORD_SAL_v1._0
 
         private void sal8_Form_Load(object sender, EventArgs e)
         {
-            sendtxt = "「ORD_TOOL」8살결과|n";
+            sendtxt = $"\x1「ORD_TOOL」8살결과|n";
+            sendtxt1 = $"\x1「ORD_TOOL」8살결과";
             for (int i = 0; i < character_arr.Length; i++)
             {
                 pbArr[i].Image = ch.chList[character_arr[i]].img;
                 lbArr[i].Text = ch.chList[character_arr[i]].name;
                 sendtxt += "[" + ch.chList[character_arr[i]].name + "] ";
+                sendtxt1 += "[" + ch.chList[character_arr[i]].shortname + "] ";
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             s.Send(sendtxt);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            s.Send(sendtxt1);
         }
     }
 }

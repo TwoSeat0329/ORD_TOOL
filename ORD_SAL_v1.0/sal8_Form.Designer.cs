@@ -46,6 +46,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -130,11 +131,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 463);
+            this.button1.Location = new System.Drawing.Point(12, 463);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(1018, 36);
+            this.button1.Size = new System.Drawing.Size(509, 36);
             this.button1.TabIndex = 10;
-            this.button1.Text = "결과 보내기";
+            this.button1.Text = "체널 결과 보내기";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -218,11 +219,22 @@
             this.label8.Text = "시라호시 초월";
             this.label8.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(524, 463);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(509, 36);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "인게임 결과 보내기";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // sal8_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1044, 511);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -278,5 +290,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button2;
     }
 }
