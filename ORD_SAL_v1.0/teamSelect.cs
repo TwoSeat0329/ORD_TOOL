@@ -34,6 +34,7 @@ namespace ORD_SAL_v1._0
 
         private void button1_Click(object sender, EventArgs e)
         {
+            int count = 1;
             data = new List<Dice>();
             a = textBox1.Text.Split(',');
             arr = rp.randomteam(a.Length);
@@ -53,16 +54,10 @@ namespace ORD_SAL_v1._0
 
             for (int i = 0; i < a.Length; i++)
             {
-                if(i == 0)
-                    smsg += "1팀 - ";
-                if(i == 3)
-                    smsg += "2팀 - ";
-                if(i == 6)
-                    smsg += "3팀 - ";
-                if(i == 9)
-                    smsg += "4팀 - ";
-                if (i == 12)
-                    smsg += "5팀 - ";
+                if (i % 3 == 0)
+                {
+                    smsg += string.Format("{0}팀 - ", count++);
+                }
 
                 smsg += data[i].name + ":" + data[i].index+" ";
                 if ((i + 1) % 3 == 0)
@@ -71,6 +66,8 @@ namespace ORD_SAL_v1._0
                         smsg += "|n";
                 }
             }
+            //1글자씩 했을때 최대 12팀
+            //2글자씩 했을때 
             s.Send($"\x1「ORD_TOOL」팀 랜덤 다이스 결과|n" + smsg);
             a.Initialize();
             arr.Initialize();

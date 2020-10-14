@@ -16,12 +16,13 @@ namespace ORD_SAL_v1
         private BackgroundWorker Worker;
         sendMsg s;
         List<string> missonlist = new List<string>();
-        bool beforeround15 = true;
         public bool state;
+        bool PiratesPress, SmokerPress;
         bool missionBuild = true;
+        bool beforeround15 = true;
+        bool MissonState = true;
         System.Timers.Timer timer = new System.Timers.Timer();
         System.Timers.Timer timer1 = new System.Timers.Timer();
-        bool PiratesPress, SmokerPress = true;
         
 
         IntPtr off = IntPtr.Zero;
@@ -61,11 +62,15 @@ namespace ORD_SAL_v1
             }
             else
             {
-                missonlist = s.GetMissonState(off);
-                if (missonlist == null)
+                if(MissonState)
                 {
-                    return;
+                    missonlist = s.GetMissonState(off);
+                    if(missonlist.Count == 2)
+                    {
+                        MissonState = false;
+                    }
                 }
+               
                 if (beforeround15)
                 {
 
