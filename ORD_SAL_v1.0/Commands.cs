@@ -137,21 +137,10 @@ namespace ORD_SAL_v1
             }
         }
 
-        //private void timer_Pirates(Object source, ElapsedEventArgs e)
-        //{
-        //    s.Send("「ORD_TOOL」[ 해적단 쿨타임이 5초 남았습니다.]");  
-        //    timer.Stop();
-        //}
-        //private void timer_Smoker(Object source, ElapsedEventArgs e)
-        //{
-        //    s.Send("「ORD_TOOL」[ 스모커 쿨타임이 5초 남았습니다.]");
-        //    timer1.Stop();
-        //}
-
         async void timer_Pirates()
         {
             s.Send("「ORD_TOOL」[해적단 알리미 시작]");
-            await Task.Delay(1000);
+            await Task.Delay(1000 * 295);
             s.Send("「ORD_TOOL」[ 해적단 쿨타임이 5초 남았습니다.]");
             timer1.Join();
         }
@@ -159,7 +148,7 @@ namespace ORD_SAL_v1
         async void timer_Smoker()
         {
             s.Send("「ORD_TOOL」[스모커 알리미 시작]");
-            await Task.Delay(2000);
+            await Task.Delay(1000 * 505);
             s.Send("「ORD_TOOL」[ 스모커 쿨타임이 5초 남았습니다.]");
             timer2.Join();
         }
