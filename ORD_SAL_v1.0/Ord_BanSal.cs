@@ -125,9 +125,22 @@ namespace ORD_SAL_v1._0
             if (timerPress)
             {
                 cmd = new Commands();
-                TimerBtn.Text = "알리미 취소";
-                TimerBtn.BackColor = Color.Red;
-                timerPress = false;
+                if(!cmd.state)
+                {
+                    cmd.state = false;
+                    cmd = null;
+                    TimerBtn.Text = "미션 알리미";
+                    TimerBtn.BackColor = SystemColors.Control;
+                    timerPress = true;
+                    return;
+                }
+                else
+                {
+                    Commands.StartDetect();
+                    TimerBtn.Text = "알리미 취소";
+                    TimerBtn.BackColor = Color.Red;
+                    timerPress = false;
+                }
             }
             else
             {

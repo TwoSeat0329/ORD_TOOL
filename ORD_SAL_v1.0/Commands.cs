@@ -13,7 +13,7 @@ namespace ORD_SAL_v1
 {
     public sealed class Commands
     {
-        private BackgroundWorker Worker;
+        private static BackgroundWorker Worker;
         sendMsg s;
         List<string> missonlist = new List<string>();
         public bool state;
@@ -21,26 +21,36 @@ namespace ORD_SAL_v1
         bool missionBuild = true;
         bool beforeround15 = true;
         bool MissonState = true;
-        System.Timers.Timer timer = new System.Timers.Timer();
-        System.Timers.Timer timer1 = new System.Timers.Timer();
-        
+        //System.Timers.Timer timer = new System.Timers.Timer();
+       // System.Timers.Timer timer1 = new System.Timers.Timer();
+        Thread timer1, timer2;
+        String strPirates, strSmoker;
 
         IntPtr off = IntPtr.Zero;
 
         public Commands()
         {
-            state = true;
-            s = sendMsg.getInstance;
-            Worker = new BackgroundWorker();
-            Worker.DoWork += new DoWorkEventHandler(Worker_DoWork);
-            Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_RunWorkerCompleted);
-            Worker.RunWorkerAsync();
+            if((s = sendMsg.getInstance) == null)
+            {
+                state = false;
+            }
+            else
+            {
+                state = true;
+                Worker = new BackgroundWorker();
+                Worker.DoWork += new DoWorkEventHandler(Worker_DoWork);
+                Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_RunWorkerCompleted);               
 
-            timer.Interval = 1000 * 295;
-            timer.Elapsed += new ElapsedEventHandler(timer_Pirates);
+                timer1 = new Thread(() => timer_Pirates());
 
-            timer1.Interval = 1000 * 505;
-            timer1.Elapsed += new ElapsedEventHandler(timer_Smoker);
+                timer2 = new Thread(() => timer_Smoker());
+
+                //timer.Interval = 1000 * 295;
+                //timer.Elapsed += new ElapsedEventHandler(timer_Pirates);
+
+                //timer1.Interval = 1000 * 505;
+                //timer1.Elapsed += new ElapsedEventHandler(timer_Smoker);
+            }
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
@@ -52,8 +62,10 @@ namespace ORD_SAL_v1
 
                 if (off != IntPtr.Zero)
                 {
-                    missionBuild = false;
+                   
                     s.Send("「ORD_TOOL」[미션 건물 설정완료]");
+                    missionBuild = false;
+                    return;
                 }
                 else
                 {               
@@ -62,22 +74,14 @@ namespace ORD_SAL_v1
             }
             else
             {
-                if(MissonState)
-                {
-                    missonlist = s.GetMissonState(off);
-                    if(missonlist.Count == 2)
-                    {
-                        MissonState = false;
-                    }
-                }
-               
+                missonlist = s.GetMissonState(off);
+                if (missonlist == null) return;
                 if (beforeround15)
                 {
 
                     if (missonlist[0] == "매진")
                     {
-                        timer.Start();
-                        s.Send("「ORD_TOOL」[해적단 알리미 시작]");
+                        timer1.Start();
                         beforeround15 = false;
                         PiratesPress = false;
                     }
@@ -96,8 +100,8 @@ namespace ORD_SAL_v1
                     {
                         if (PiratesPress)
                         {
-                            s.Send("「ORD_TOOL」[해적단 알리미 시작]");
-                            timer.Start();
+                            timer1 = new Thread(() => timer_Pirates());
+                            timer1.Start();
                             PiratesPress = false;
                         }
 
@@ -106,39 +110,60 @@ namespace ORD_SAL_v1
                     {
                         if (SmokerPress)
                         {
-                            s.Send("「ORD_TOOL」[스모커 알리미 시작]");
-                            timer1.Start();
+                            timer2 = new Thread(() => timer_Smoker());
+                            timer2.Start();
                             SmokerPress = false;
                         }
-                    }                 
+                    }
                 }
             }
 
         }
 
-        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private async void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            Task.Delay(200);
+            await Task.Delay(200);
+          
             if (state)
             {
                 Worker.RunWorkerAsync();
             }
             else
             {
-                timer.Stop();
-                timer1.Stop();
+                if (timer1.IsAlive) timer1.Join();
+                else timer1 = null;
+                if (timer2.IsAlive) timer2.Join();
+                else timer2 = null;
             }
         }
 
-        private void timer_Pirates(Object source, ElapsedEventArgs e)
+        //private void timer_Pirates(Object source, ElapsedEventArgs e)
+        //{
+        //    s.Send("「ORD_TOOL」[ 해적단 쿨타임이 5초 남았습니다.]");  
+        //    timer.Stop();
+        //}
+        //private void timer_Smoker(Object source, ElapsedEventArgs e)
+        //{
+        //    s.Send("「ORD_TOOL」[ 스모커 쿨타임이 5초 남았습니다.]");
+        //    timer1.Stop();
+        //}
+
+        async void timer_Pirates()
         {
-            s.Send("「ORD_TOOL」[ 해적단 쿨타임이 5초 남았습니다.]");  
-            timer.Stop();
+            s.Send("「ORD_TOOL」[해적단 알리미 시작]");
+            await Task.Delay(1000);
+            s.Send("「ORD_TOOL」[ 해적단 쿨타임이 5초 남았습니다.]");
+            timer1.Join();
         }
-        private void timer_Smoker(Object source, ElapsedEventArgs e)
+
+        async void timer_Smoker()
         {
+            s.Send("「ORD_TOOL」[스모커 알리미 시작]");
+            await Task.Delay(2000);
             s.Send("「ORD_TOOL」[ 스모커 쿨타임이 5초 남았습니다.]");
-            timer1.Stop();
+            timer2.Join();
         }
+
+        internal static void StartDetect() => Worker.RunWorkerAsync();
     }
 }
