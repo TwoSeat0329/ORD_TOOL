@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,13 +20,16 @@ namespace ORD_SAL_v1._0
         public bool timerPress = true; //알리미버튼 확인용
         random_Pick s;
         public Commands cmd = null;
+
         public Ord_BanSal()
         {
             InitializeComponent();
+            
             this.MaximizeBox = false;
             this.Text = "ORD_TOOL";
             textBox1.Text = "입력하세요.";
             s = random_Pick.getInstance;
+
             
         }
 
@@ -125,7 +129,7 @@ namespace ORD_SAL_v1._0
             if (timerPress)
             {
                 cmd = new Commands();
-                if(!cmd.state)
+                if (!cmd.state)
                 {
                     cmd.state = false;
                     cmd = null;
@@ -157,5 +161,8 @@ namespace ORD_SAL_v1._0
             this.Hide();
             new salSet_Form(this).ShowDialog();
         }
+
+
+  
     }
 }

@@ -16,15 +16,12 @@ namespace ORD_SAL_v1
         private static BackgroundWorker Worker;
         sendMsg s;
         List<string> missonlist = new List<string>();
-        public bool state;
+        public bool state, ingame;
+      
         bool PiratesPress, SmokerPress;
         bool missionBuild = true;
         bool beforeround15 = true;
-        bool MissonState = true;
-        //System.Timers.Timer timer = new System.Timers.Timer();
-       // System.Timers.Timer timer1 = new System.Timers.Timer();
         Thread timer1, timer2;
-        String strPirates, strSmoker;
 
         IntPtr off = IntPtr.Zero;
 
@@ -37,6 +34,7 @@ namespace ORD_SAL_v1
             else
             {
                 state = true;
+                ingame = true;
                 Worker = new BackgroundWorker();
                 Worker.DoWork += new DoWorkEventHandler(Worker_DoWork);
                 Worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Worker_RunWorkerCompleted);               
@@ -62,14 +60,15 @@ namespace ORD_SAL_v1
 
                 if (off != IntPtr.Zero)
                 {
-                   
+
                     s.Send("「ORD_TOOL」[미션 건물 설정완료]");
                     missionBuild = false;
                     return;
                 }
                 else
-                {               
-                    return; 
+                {
+
+                    return;
                 }
             }
             else
@@ -117,40 +116,68 @@ namespace ORD_SAL_v1
                     }
                 }
             }
-
         }
+    
+
+        
 
         private async void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             await Task.Delay(200);
-          
+
             if (state)
             {
                 Worker.RunWorkerAsync();
             }
             else
             {
-                if (timer1.IsAlive) timer1.Join();
-                else timer1 = null;
-                if (timer2.IsAlive) timer2.Join();
-                else timer2 = null;
+                if (timer1.ThreadState == ThreadState.WaitSleepJoin) 
+                {
+                    timer1.Interrupt();
+                    timer1.Join();
+                }
+                else
+                {
+                    timer1.Interrupt();                
+                }
+                if (timer2.ThreadState == ThreadState.WaitSleepJoin)
+                {
+                    timer2.Interrupt();
+                    timer2.Join();
+                }
+                else
+                {
+                    timer2.Interrupt();    
+                }
             }
         }
 
-        async void timer_Pirates()
+        void timer_Pirates()
         {
             s.Send("「ORD_TOOL」[해적단 알리미 시작]");
-            await Task.Delay(1000 * 295);
+            try
+            {
+                Thread.Sleep(1000 * 295);
+            }
+            catch
+            {
+                return;
+            }
             s.Send("「ORD_TOOL」[ 해적단 쿨타임이 5초 남았습니다.]");
-            timer1.Join();
         }
 
-        async void timer_Smoker()
+        void timer_Smoker()
         {
             s.Send("「ORD_TOOL」[스모커 알리미 시작]");
-            await Task.Delay(1000 * 505);
+            try
+            {
+                Thread.Sleep(1000 * 505);
+            }
+            catch
+            {
+                return;
+            }
             s.Send("「ORD_TOOL」[ 스모커 쿨타임이 5초 남았습니다.]");
-            timer2.Join();
         }
 
         internal static void StartDetect() => Worker.RunWorkerAsync();

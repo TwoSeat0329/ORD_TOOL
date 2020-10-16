@@ -291,10 +291,20 @@ namespace ORD_SAL_v1._0
                     if (Listret.Count == 2) return Listret;
                 }
             }
-            for (int i = 0; i < ArrOffset.Length; i++)
+            try
             {
-                ArrOffset[i] = IntPtr.Zero;
+                for (int i = 0; i < ArrOffset.Length; i++)
+                {
+                    ArrOffset[i] = IntPtr.Zero;
+                }
             }
+            catch
+            {
+                Listret.Clear();
+                //CloseHandle(war3Handle);
+                return null;
+            }
+            
             Listret.Clear();
             //CloseHandle(war3Handle);
             return null;
