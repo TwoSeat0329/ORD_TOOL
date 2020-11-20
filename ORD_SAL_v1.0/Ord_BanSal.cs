@@ -33,9 +33,6 @@ namespace ORD_SAL_v1._0
             
         }
 
-        
-
-
         private void textBox1_MouseClick(object sender, MouseEventArgs e)
         {
             if (!tb1)
@@ -86,19 +83,19 @@ namespace ORD_SAL_v1._0
                     //랜덤숫자 받아오기
                     int[] arr = s.start_Set(int.Parse(textBox1.Text), 6);
                     this.Hide();
-                    new sal6_Form(this, arr).ShowDialog();
+                    new sal6_Form(this, arr).CheckWarCreaftOn();
                 }
                 else if (salCB2.Checked) //8
                 {
                     int[] arr = s.start_Set(int.Parse(textBox1.Text), 8);
                     this.Hide();
-                    new sal8_Form(this, arr).ShowDialog();
+                    new sal8_Form(this, arr).CheckWarCreaftOn();
                 }
                 else if (salCB3.Checked) //4
                 {
                     int[] arr = s.start_Set(int.Parse(textBox1.Text), 4);
                     this.Hide();
-                    new sal4_Form(this, arr).ShowDialog();
+                    new sal4_Form(this, arr).CheckWarCreaftOn();
                 }
                 else if (!salCB1.Checked && !salCB2.Checked && !salCB3.Checked)
                 {

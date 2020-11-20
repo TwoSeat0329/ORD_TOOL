@@ -60,5 +60,18 @@ namespace ORD_SAL_v1._0
         {
             s.Send(sendtxt1);
         }
+
+        public void CheckWarCreaftOn()
+        {
+            if (s == null)
+            {
+                parentf.Show();
+                parentf = null;
+            }
+            else
+            {
+                this.ShowDialog();
+            }
+        }
     }
 }

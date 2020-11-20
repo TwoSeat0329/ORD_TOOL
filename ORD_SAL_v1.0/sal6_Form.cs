@@ -31,7 +31,6 @@ namespace ORD_SAL_v1._0
             pbArr = new PictureBox[]{pictureBox1,pictureBox2,pictureBox3,pictureBox4,pictureBox5,pictureBox6};
             lbArr = new Label[] { label1, label2, label3, label4, label5, label6 };
             s = sendMsg.getInstance;
-            
         }
 
         private void sal6_Form_FormClosing(object sender, FormClosingEventArgs e)
@@ -42,6 +41,7 @@ namespace ORD_SAL_v1._0
 
         private void sal6_Form_Load(object sender, EventArgs e)
         {
+
             sendtxt = $"\x1「ORD_TOOL」6살결과|n";
             sendtxt1 = $"\x1「ORD_TOOL」6살결과";
             for (int i = 0; i < character_arr.Length; i++)
@@ -61,6 +61,19 @@ namespace ORD_SAL_v1._0
         private void button2_Click(object sender, EventArgs e)
         {
             s.Send(sendtxt1);
+        }
+
+        public void CheckWarCreaftOn()
+        {
+            if (s == null)
+            {
+                parentf.Show();
+                parentf = null;
+            }
+            else
+            {
+                this.ShowDialog();
+            }
         }
     }
 }

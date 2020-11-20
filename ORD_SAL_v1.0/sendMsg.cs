@@ -46,7 +46,29 @@ namespace ORD_SAL_v1._0
                         war3 = Process.GetProcessesByName("War3");
                         if (war3.Length == 0)
                         {
-                            MessageBox.Show("워크래프트3를 먼저 실행주세요 "); return null;
+                            war3 = Process.GetProcessesByName("._cache_Warcraft III");
+                            if(war3.Length == 0)
+                            {
+                                war3 = Process.GetProcessesByName("._cache_War3");
+                                if (war3.Length == 0)
+                                {
+                                    MessageBox.Show("워크래프트3를 먼저 실행주세요 "); return null;
+                                }
+                                else
+                                {
+                                    war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+
+                                    instance = new sendMsg();
+                                }
+                            }
+                            else
+                            {
+                                war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+
+                                instance = new sendMsg();
+                            }
+
+
                         }
                         else
                         {
@@ -260,7 +282,7 @@ namespace ORD_SAL_v1._0
                     }
                     else
                     {
-                        if (ReadProcessMemory(war3Handle, Offset + 0x1D2C, buffer, 6, out _))
+                        if (ReadProcessMemory(war3Handle, Offset + 0x242C, buffer, 6, out _))
                         {
                             using (ByteStream bs = new ByteStream())
                             {
@@ -273,7 +295,7 @@ namespace ORD_SAL_v1._0
                                 Listret.Add(ret);
                             }
                         }
-                        if (ReadProcessMemory(war3Handle, Offset + 0x322C, buffer, 6, out _))
+                        if (ReadProcessMemory(war3Handle, Offset + 0x392C, buffer, 6, out _))
                         {
                             using (ByteStream bs = new ByteStream())
                             {
@@ -326,7 +348,7 @@ namespace ORD_SAL_v1._0
                         {
                             //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
                             byte[] buffer = new byte[6];
-                            if (ReadProcessMemory(war3Handle, ArrOffset[i] + 0x15DD, buffer, 6, out _))
+                            if (ReadProcessMemory(war3Handle, ArrOffset[i] + 0x1CDD, buffer, 6, out _))
                             {
                                 using (ByteStream bs = new ByteStream())
                                 {
