@@ -23,7 +23,7 @@ namespace ORD_SAL_v1._0
         byte[] ChracterGroupSearchPattern = new byte[] { 0xB2, 0x25, 0xBD, 0x25, 0xB2 };
         byte[] TimerSearchPattern = new byte[] { 0x58, 0xFB, 0xFF, 0x24, 0x58 };
         byte[] MessageSearchPattern = new byte[] { 0x94, 0x28, 0x49, 0x65, 0x94 };
-        byte[] ChannelListSearchPattern = new byte[] { 0x6E, 0xF6, 0x4C, 0x12, 0x6E };
+        //byte[] ChannelListSearchPattern = new byte[] { 0x6E, 0xF6, 0x4C, 0x12, 0x6E };
         public IntPtr processcheck = IntPtr.Zero;
         bool saveplay = false;
 

@@ -165,6 +165,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ord_XG6_icon.ico" />
+    <None Include="Resources\루피.png" />
+    <None Include="Resources\오뎅.png" />
     <None Include="Resources\후지토라.png" />
     <None Include="Resources\에넬.jpg" />
     <None Include="Resources\시노부.jpg" />

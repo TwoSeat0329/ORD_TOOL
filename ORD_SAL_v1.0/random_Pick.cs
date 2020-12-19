@@ -65,13 +65,17 @@ namespace ORD_SAL_v1._0
             {
                 return 25;
             }
-            else if (a >= 15 && a < 35) // 헨콕
+            else if (a >= 15 && a < 30) // 헨콕
             {
                 return 26;
             }
-            else if (a >= 35) //미호크
+            else if (a >= 30 && a < 35) // 오뎅
             {
                 return 27;
+            }
+            else if (a >= 35) //미호크
+            {
+                return 28;
             }
             return 0;
         }

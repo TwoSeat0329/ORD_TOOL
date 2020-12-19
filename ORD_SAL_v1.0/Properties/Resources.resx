@@ -149,7 +149,7 @@
     <value>..\Resources\루치.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="루피" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\루피.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Resources\루피.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="미호크" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\미호크.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -189,6 +189,9 @@
   </data>
   <data name="에이스" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\에이스.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="오뎅" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\오뎅.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="제파" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\제파.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

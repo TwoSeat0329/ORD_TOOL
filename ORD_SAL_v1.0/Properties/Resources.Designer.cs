@@ -62,44 +62,34 @@ namespace ORD_SAL_v1.Properties {
         
         /// <summary>
         ///   [
-        /// {
-        ///   &quot;이름&quot;: &quot;거프 해군 영웅 - 희귀함&quot;,
-        ///   &quot;루피&quot;: 3,
-        ///   &quot;조로&quot;: 0,
-        ///   &quot;나미&quot;: 0,
-        ///   &quot;우솝&quot;: 0,
-        ///   &quot;상디&quot;: 0,
-        ///   &quot;쵸파&quot;: 1,
-        ///   &quot;버기&quot;: 0,
-        ///   &quot;총병&quot;: 3,
-        ///   &quot;칼병&quot;: 5,
-        ///   &quot;계&quot;: 12
-        /// },
-        /// {
-        ///   &quot;이름&quot;: &quot;마샬.D.티치 흰수염해적단의 배신자 - 희귀함&quot;,
-        ///   &quot;루피&quot;: 3,
-        ///   &quot;조로&quot;: 0,
-        ///   &quot;나미&quot;: 1,
-        ///   &quot;우솝&quot;: 2,
-        ///   &quot;상디&quot;: 0,
-        ///   &quot;쵸파&quot;: 3,
-        ///   &quot;버기&quot;: 0,
-        ///   &quot;총병&quot;: 3,
-        ///   &quot;칼병&quot;: 3,
-        ///   &quot;계&quot;: 15
-        /// },
-        /// {
-        ///   &quot;이름&quot;: &quot;돈키호테 도플라밍고 칠무해 - 희귀함&quot;,
-        ///   &quot;루피&quot;: 1,
-        ///   &quot;조로&quot;: 1,
-        ///   &quot;나미&quot;: 1,
-        ///   &quot;우솝&quot;: 0,
-        ///   &quot;상디&quot;: 2,
-        ///   &quot;쵸파&quot;: 2,
-        ///   &quot;버기&quot;: 3,
-        ///   &quot;총병&quot;: 0,
-        ///   &quot;칼병&quot;: 3,
-        ///   &quot;계&quot;: 13        ///[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
+        ///    {
+        ///        &quot;이름&quot;: &quot;거프 해군 영웅 - 희귀함&quot;,
+        ///        &quot;루피&quot;: 3,
+        ///        &quot;조로&quot;: 0,
+        ///        &quot;나미&quot;: 0,
+        ///        &quot;우솝&quot;: 0,
+        ///        &quot;상디&quot;: 0,
+        ///        &quot;쵸파&quot;: 1,
+        ///        &quot;버기&quot;: 0,
+        ///        &quot;총병&quot;: 3,
+        ///        &quot;칼병&quot;: 5,
+        ///        &quot;계&quot;: 12
+        ///    },
+        ///    {
+        ///        &quot;이름&quot;: &quot;마샬.D.티치 흰수염해적단의 배신자 - 희귀함&quot;,
+        ///        &quot;루피&quot;: 3,
+        ///        &quot;조로&quot;: 0,
+        ///        &quot;나미&quot;: 1,
+        ///        &quot;우솝&quot;: 2,
+        ///        &quot;상디&quot;: 0,
+        ///        &quot;쵸파&quot;: 3,
+        ///        &quot;버기&quot;: 0,
+        ///        &quot;총병&quot;: 3,
+        ///        &quot;칼병&quot;: 3,
+        ///        &quot;계&quot;: 15
+        ///    },
+        ///    {
+        ///        &quot;이름&quot;: &quot;돈키호테 도플라밍고 칠무해 - 희귀함&quot;,[나머지 문자열은 잘림]&quot;;과(와) 유사한 지역화된 문자열을 찾습니다.
         /// </summary>
         public static string commonList {
             get {
@@ -333,6 +323,16 @@ namespace ORD_SAL_v1.Properties {
         public static System.Drawing.Bitmap 에이스 {
             get {
                 object obj = ResourceManager.GetObject("에이스", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        public static System.Drawing.Bitmap 오뎅 {
+            get {
+                object obj = ResourceManager.GetObject("오뎅", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
