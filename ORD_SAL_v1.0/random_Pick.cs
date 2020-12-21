@@ -59,23 +59,23 @@ namespace ORD_SAL_v1._0
 
             if (a < 5)  // 노 영원함
             {
-                return 24;
+                return 25;
             }
             else if (a >= 5 && a < 15)  // 에이스
             {
-                return 25;
+                return 26;
             }
             else if (a >= 15 && a < 30) // 헨콕
             {
-                return 26;
+                return 27;
             }
             else if (a >= 30 && a < 35) // 오뎅
             {
-                return 27;
+                return 28;
             }
             else if (a >= 35) //미호크
             {
-                return 28;
+                return 29;
             }
             return 0;
         }
@@ -89,12 +89,14 @@ namespace ORD_SAL_v1._0
             // bool PSame = true;
 
             Random r = new Random();
-            for (int i = 0; i < b; ++i)
+            for (int i = 0; i < b; i++)
             {
                 while (true)
                 {
                     arr[i] = r.Next(0, a);
 
+                    if (arr[i] == 0)
+                        isSame = false;
                     isSame = false;
                     if (overlap)
                     {
@@ -116,7 +118,6 @@ namespace ORD_SAL_v1._0
                         if (arr[i] == arr[j])
                         {
                             isSame = true;
-                            break;
                         }
                     }
                     if (!isSame) break;
@@ -135,7 +136,7 @@ namespace ORD_SAL_v1._0
             {
                 while (true)
                 {
-                    arr[i] = r.Next(1, 99);
+                    arr[i] = r.Next(1, 100);
                     isSame = false;
                     for (int j = 0; j < i; ++j)
                     {

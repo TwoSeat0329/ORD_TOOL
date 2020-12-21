@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORD_TOOL", "ORD_SAL_v1.0\ORD_TOOL.csproj", "{5A5015F3-9FCD-48DD-B6A0-CCD08CD6AC7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirnoLib", "..\CirnoLib\CirnoLib\CirnoLib.csproj", "{EC749998-E306-4DB9-A6CB-9692DC918B6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CirnoLib", "..\..\Source\Repos\CirnoLib\CirnoLib\CirnoLib.csproj", "{EC749998-E306-4DB9-A6CB-9692DC918B6B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +35,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BD60653F-1409-4800-A3A9-81993DCFFA2E}
+		SolutionGuid = {13AA6EB6-3B6D-49B3-BDBC-2B8BD0B0108F}
 	EndGlobalSection
 EndGlobal
