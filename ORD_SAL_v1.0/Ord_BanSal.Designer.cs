@@ -83,7 +83,7 @@
             this.salCB2.TabIndex = 4;
             this.salCB2.Text = "8개 살리기";
             this.salCB2.UseVisualStyleBackColor = true;
-            this.salCB2.Click += new System.EventHandler(this.salCB2_Click);
+            this.salCB2.Click += new System.EventHandler(this.SalCB2_Click);
             // 
             // saveLB
             // 
@@ -126,7 +126,7 @@
             this.salCB3.TabIndex = 8;
             this.salCB3.Text = "4개 살리기";
             this.salCB3.UseVisualStyleBackColor = true;
-            this.salCB3.Click += new System.EventHandler(this.salCB3_Click);
+            this.salCB3.Click += new System.EventHandler(this.SalCB3_Click);
             // 
             // TimerBtn
             // 

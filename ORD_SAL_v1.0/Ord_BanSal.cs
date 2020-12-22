@@ -42,7 +42,7 @@ namespace ORD_SAL_v1._0
             }
         }
 
-        private void salCB3_Click(object sender, EventArgs e)
+        private void SalCB3_Click(object sender, EventArgs e)
         {
             if (salCB1.Checked || salCB2.Checked)
             {
@@ -62,7 +62,7 @@ namespace ORD_SAL_v1._0
             }
         }
 
-        private void salCB2_Click(object sender, EventArgs e)
+        private void SalCB2_Click(object sender, EventArgs e)
         {
             if (salCB1.Checked || salCB3.Checked)
             {
@@ -81,19 +81,19 @@ namespace ORD_SAL_v1._0
                 if (salCB1.Checked) //6
                 {
                     //랜덤숫자 받아오기
-                    int[] arr = s.start_Set(int.Parse(textBox1.Text), 6);
+                    int[] arr = s.Start_Set(int.Parse(textBox1.Text), 6);
                     this.Hide();
                     new sal6_Form(this, arr).CheckWarCreaftOn();
                 }
                 else if (salCB2.Checked) //8
                 {
-                    int[] arr = s.start_Set(int.Parse(textBox1.Text), 8);
+                    int[] arr = s.Start_Set(int.Parse(textBox1.Text), 8);
                     this.Hide();
                     new sal8_Form(this, arr).CheckWarCreaftOn();
                 }
                 else if (salCB3.Checked) //4
                 {
-                    int[] arr = s.start_Set(int.Parse(textBox1.Text), 4);
+                    int[] arr = s.Start_Set(int.Parse(textBox1.Text), 4);
                     this.Hide();
                     new sal4_Form(this, arr).CheckWarCreaftOn();
                 }

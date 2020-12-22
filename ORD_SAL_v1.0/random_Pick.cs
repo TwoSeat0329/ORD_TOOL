@@ -25,7 +25,7 @@ namespace ORD_SAL_v1._0
                 return instance;
             }
         }
-        public int[] start_Set(int savecount,int unitcount)
+        public int[] Start_Set(int savecount,int unitcount)
         {
             List<int> falsechecklist = new List<int>();
             foreach(var a in character_Info.Instance.chList)
@@ -34,7 +34,7 @@ namespace ORD_SAL_v1._0
                     falsechecklist.Add(a.index);
             }
 
-            int count = saveroll(savecount);
+            int count = Saveroll(savecount);
             int[] randomcount = null;
             if (unitcount == 4)
             {
@@ -54,7 +54,7 @@ namespace ORD_SAL_v1._0
             return randomcount;
         }
 
-        int saveroll(int a)
+        int Saveroll(int a)
         {
 
             if (a < 5)  // 노 영원함
@@ -94,9 +94,6 @@ namespace ORD_SAL_v1._0
                 while (true)
                 {
                     arr[i] = r.Next(0, a);
-
-                    if (arr[i] == 0)
-                        isSame = false;
                     isSame = false;
                     if (overlap)
                     {

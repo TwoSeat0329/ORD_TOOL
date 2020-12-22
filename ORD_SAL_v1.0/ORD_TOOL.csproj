@@ -264,7 +264,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\Source\Repos\CirnoLib\CirnoLib\CirnoLib.csproj">
+    <ProjectReference Include="..\..\CirnoLib\CirnoLib\CirnoLib.csproj">
       <Project>{ec749998-e306-4db9-a6cb-9692dc918b6b}</Project>
       <Name>CirnoLib</Name>
     </ProjectReference>

@@ -647,23 +647,12 @@
             개체를 암복호화하는데 사용될 암호키입니다.
             </summary>
         </member>
-        <member name="F:CirnoLib.Settings.CryptoRegistryComponent.UseCache">
-            <summary>
-            개체에 쓰기 전에 캐시에 먼저 담아둘 지의 여부를 결정합니다.
-            </summary>
-        </member>
-        <member name="F:CirnoLib.Settings.CryptoRegistryComponent.Cache">
-            <summary>
-            개체에 쓰기 전에 담아두는 캐시 입니다.
-            </summary>
-        </member>
-        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.#ctor(System.String,System.String,System.Boolean)">
+        <member name="M:CirnoLib.Settings.CryptoRegistryComponent.#ctor(System.String,System.String)">
             <summary>
             개체를 사용자가 제공하는 키를 루트로 초기화 합니다.
             </summary>
             <param name="RootPath">개체를 초기화할 루트 키 입니다.</param>
             <param name="CryptoKey">개체를 암복호화할 암호키 입니다.</param>
-            <param name="UseCache">개체에 쓰기 전에 캐시에 먼저 담아둘 지의 여부를 결정합니다.</param>
         </member>
         <member name="M:CirnoLib.Settings.CryptoRegistryComponent.Clear">
             <summary>

@@ -16,7 +16,7 @@ namespace ORD_SAL_v1._0
     public partial class help : Form
     {
         Form parentf = null;
-        sendMsg s;
+        readonly sendMsg s;
         
         public help(Form mainf)
         {
@@ -37,7 +37,7 @@ namespace ORD_SAL_v1._0
         {
             string a = Properties.Resources.commonList;
             List<Commonamount> amountlist = JsonConvert.DeserializeObject<List<Commonamount>>(a);
-            List<string> charaterdata = new List<string>();
+            List<string> charaterdata;
             Double totalcount = 0;
             listView1.Items.Clear();
             ListViewItem item;
