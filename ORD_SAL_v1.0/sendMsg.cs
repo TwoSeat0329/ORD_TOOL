@@ -37,29 +37,20 @@ namespace ORD_SAL_v1._0
         {
             get
             {
-                if(instance == null)
+                war3 = Process.GetProcessesByName("Warcraft III");
+                if (war3.Length == 0)
                 {
-                    
-                    war3 = Process.GetProcessesByName("Warcraft III");
+                    war3 = Process.GetProcessesByName("War3");
                     if (war3.Length == 0)
                     {
-                        war3 = Process.GetProcessesByName("War3");
+                        war3 = Process.GetProcessesByName("._cache_Warcraft III");
                         if (war3.Length == 0)
                         {
-                            war3 = Process.GetProcessesByName("._cache_Warcraft III");
-                            if(war3.Length == 0)
+                            war3 = Process.GetProcessesByName("._cache_War3");
+                            if (war3.Length == 0)
                             {
-                                war3 = Process.GetProcessesByName("._cache_War3");
-                                if (war3.Length == 0)
-                                {
-                                    MessageBox.Show("워크래프트3를 먼저 실행주세요 "); return null;
-                                }
-                                else
-                                {
-                                    war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
-
-                                    instance = new sendMsg();
-                                }
+                                MessageBox.Show("워크래프트3를 먼저 실행주세요 ");
+                                instance = null;
                             }
                             else
                             {
@@ -67,23 +58,30 @@ namespace ORD_SAL_v1._0
 
                                 instance = new sendMsg();
                             }
-
-
                         }
                         else
                         {
                             war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
-                         
+
                             instance = new sendMsg();
                         }
+
+
                     }
                     else
                     {
                         war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+
                         instance = new sendMsg();
                     }
-                    
                 }
+                else
+                {
+                    war3Handle = OpenProcess(0x38, false, (uint)war3[0].Id);
+                    instance = new sendMsg();
+                }
+
+
                 return instance;
             }
         }
