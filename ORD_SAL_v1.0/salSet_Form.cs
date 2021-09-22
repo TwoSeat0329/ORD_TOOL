@@ -34,7 +34,7 @@ namespace ORD_SAL_v1
             UnitListView.Items.Clear();
             foreach (var a in ch.chList)
             {
-                item = new ListViewItem(a.name);
+                item = new ListViewItem(a.shortname);
                 item.Checked = a.sel;
                 UnitListView.Items.Add(item);       
             }
@@ -76,6 +76,11 @@ namespace ORD_SAL_v1
                 ch.ListCheckChange(e.Item.Index, e.Item.Checked);
             }
             
+        }
+
+        private void overlapCB_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

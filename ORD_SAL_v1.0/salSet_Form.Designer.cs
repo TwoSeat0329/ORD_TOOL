@@ -44,6 +44,7 @@
             this.overlapCB.TabIndex = 0;
             this.overlapCB.Text = "전판 중복 불가 설정";
             this.overlapCB.UseVisualStyleBackColor = true;
+            this.overlapCB.CheckedChanged += new System.EventHandler(this.overlapCB_CheckedChanged);
             this.overlapCB.Click += new System.EventHandler(this.overlapCB_Click);
             // 
             // UnitListView

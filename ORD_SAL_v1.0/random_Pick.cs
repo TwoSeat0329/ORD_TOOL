@@ -63,19 +63,19 @@ namespace ORD_SAL_v1._0
             }
             else if (a >= 5 && a < 15)  // 에이스
             {
-                return 26;
+                return 27;
             }
             else if (a >= 15 && a < 30) // 헨콕
             {
-                return 27;
+                return 28;
             }
             else if (a >= 30 && a < 35) // 오뎅
             {
-                return 28;
+                return 29;
             }
             else if (a >= 35) //미호크
             {
-                return 29;
+                return 30;
             }
             return 0;
         }

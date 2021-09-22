@@ -63,18 +63,13 @@ namespace ORD_SAL_v1
 
                     s.Send("「ORD_TOOL」[미션 건물 설정완료]");
                     missionBuild = false;
-                    return;
-                }
-                else
-                {
-
-                    return;
                 }
             }
             else
             {
                 missonlist = s.GetMissonState(off);
                 if (missonlist == null) return;
+               
                 if (beforeround15)
                 {
 
@@ -157,7 +152,7 @@ namespace ORD_SAL_v1
             s.Send("「ORD_TOOL」[해적단 알리미 시작]");
             try
             {
-                Thread.Sleep(1000 * 295);
+                Thread.Sleep(1000 * 355);
             }
             catch
             {

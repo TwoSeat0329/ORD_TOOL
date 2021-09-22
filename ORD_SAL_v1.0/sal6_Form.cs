@@ -47,7 +47,7 @@ namespace ORD_SAL_v1._0
             for (int i = 0; i < character_arr.Length; i++)
             {
                 pbArr[i].Image = ch.chList[character_arr[i]].img;
-                lbArr[i].Text = ch.chList[character_arr[i]].name;
+                lbArr[i].Text = ch.chList[character_arr[i]].shortname;
                 sendtxt += "[" + ch.chList[character_arr[i]].name + "] ";
                 sendtxt1 += "[" + ch.chList[character_arr[i]].shortname + "] ";
             }

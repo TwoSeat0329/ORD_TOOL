@@ -293,7 +293,7 @@ namespace ORD_SAL_v1._0
                                 Listret.Add(ret);
                             }
                         }
-                        if (ReadProcessMemory(war3Handle, Offset + 0x392C, buffer, 6, out _))
+                        if (ReadProcessMemory(war3Handle, Offset + 0x322C, buffer, 6, out _))
                         {
                             using (ByteStream bs = new ByteStream())
                             {
@@ -346,7 +346,7 @@ namespace ORD_SAL_v1._0
                         {
                             //여기를 for문으로 돌려서 여러개 찾아함 2. +0x6B0 씩 넘어가서 값을 가져와야함
                             byte[] buffer = new byte[6];
-                            if (ReadProcessMemory(war3Handle, ArrOffset[i] + 0x1CDD, buffer, 6, out _))
+                            if (ReadProcessMemory(war3Handle, ArrOffset[i] + 0x2ADD, buffer, 6, out _))
                             {
                                 using (ByteStream bs = new ByteStream())
                                 {
