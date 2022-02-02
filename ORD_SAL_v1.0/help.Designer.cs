@@ -1,6 +1,6 @@
 ﻿namespace ORD_SAL_v1._0
 {
-    partial class help
+    partial class Help
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(help));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Help));
             this.LegendCalBtn = new System.Windows.Forms.Button();
             this.countTB = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -163,8 +163,8 @@
             this.Name = "help";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "제작자:Twoseat.aC 제작도움:평타천국(BlacklightsC)";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.help_FormClosing);
-            this.Load += new System.EventHandler(this.help_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Help_FormClosing);
+            this.Load += new System.EventHandler(this.Help_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -13,12 +13,12 @@ using System.Windows.Forms;
 
 namespace ORD_SAL_v1._0
 {
-    public partial class help : Form
+    public partial class Help : Form
     {
         Form parentf = null;
         readonly sendMsg s;
         
-        public help(Form mainf)
+        public Help(Form mainf)
         {
             InitializeComponent();
             this.MaximizeBox = false;
@@ -27,7 +27,7 @@ namespace ORD_SAL_v1._0
             
         }
 
-        private void help_FormClosing(object sender, FormClosingEventArgs e)
+        private void Help_FormClosing(object sender, FormClosingEventArgs e)
         {
             parentf.Show();
             parentf = null;
@@ -87,7 +87,7 @@ namespace ORD_SAL_v1._0
             }
         }
 
-        private void help_Load(object sender, EventArgs e)
+        private void Help_Load(object sender, EventArgs e)
         {
             if (s == null) this.Close();
         }

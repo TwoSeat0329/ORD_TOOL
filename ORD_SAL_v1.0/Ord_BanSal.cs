@@ -118,7 +118,7 @@ namespace ORD_SAL_v1._0
         private void helpBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            new help(this).ShowDialog();
+            new Help(this).ShowDialog();
         }
 
         private void TimerBtn_Click(object sender, EventArgs e)
